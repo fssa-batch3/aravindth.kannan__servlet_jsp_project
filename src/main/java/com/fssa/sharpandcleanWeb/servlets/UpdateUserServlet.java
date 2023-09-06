@@ -1,6 +1,7 @@
 package com.fssa.sharpandcleanWeb.servlets;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -33,8 +34,7 @@ public class UpdateUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    HttpSession session = request.getSession();
 	    
-	    String loggedInEmail = (String) session.getAttribute("loggedInemail");
-	    
+	    String loggedInEmail = (String) session.getAttribute("loggedInemail");  
 	    String newUserName = request.getParameter("name");
 	    String newMobileNumber = request.getParameter("phonenumber");
 	    String newPassword = request.getParameter("password");

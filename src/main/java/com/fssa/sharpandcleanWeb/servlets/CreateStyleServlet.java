@@ -43,7 +43,6 @@ public class CreateStyleServlet extends HttpServlet {
 		String hairCutType = request.getParameter("haircutType");
 		String haircutAbout = request.getParameter("haircutAbout");
 		String haircutURL = request.getParameter("haircutURL");
-		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		StyleService styleService = new StyleService();
 		Style styles = new Style(haircutName, haircutBarbersEmail, hairCutType, haircutAbout,
