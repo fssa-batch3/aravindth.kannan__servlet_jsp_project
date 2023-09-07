@@ -2,6 +2,7 @@ package com.fssa.sharpandcleanWeb.servlets;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -24,7 +25,7 @@ public class UpdateUserServlet extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -46,7 +47,7 @@ public class UpdateUserServlet extends HttpServlet {
 	   
 	    
 	    try {
-	        if (userService.updateUser(updatedUser,loggedInEmail)) {
+	        if (userService.updateUser(updatedUser)) {
 	            out.println("User Information Successfully Updated!");
 	        } else {
 	            out.println("Error updating user information.");

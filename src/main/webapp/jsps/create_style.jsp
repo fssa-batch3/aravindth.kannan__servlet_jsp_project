@@ -4,28 +4,47 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Create hair-style by barber page</title>
 <link rel="stylesheet" href="../css/add_style.css">
 </head>
 <body>
+
+<%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("login.jsp");
+	}
+%>
+
+<% String errMsg = request.getParameter("error");
+    if(errMsg!=null){
+    	%>
+      	<p>Error In create style: <%=errMsg%> </p>
+    	<%
+    }
+    %>
+
+
+
+
+
+
+
+
+
 	
 		<div class="form_div">
-			<p class="test_head">Add more haircuts</p>
-			<form id="add_form" class="add_style_form" action="CreateStyleServlet" method="post">
+			<p class="test_head">Create new hair-style</p>
+			<form  class="add_style_form" action="CreateStyleServlet" method="post">
 				<div class="small_form_div">
-					<label class="label">Haircut name</label> <br /> <input
+					<label class="label">Hair-style name</label> <br /> <input
 					name="haircutName"
 						value="Fire haircut" required pattern="[A-Z a-z]{1,32}"
 						title="Make sure that name should space" id="style_name"
 						class="name-box-1" type="text" autocomplete="name" />
 				</div>
-				<div class="small_form_div">
-					<label for="email" class="label">Style's barber Email</label> <br />
-
-					<input
-					value="aravindth@gmail.com" required class="name-box-1" type="email" name="haircutBarbersEmail"
-						autocomplete="gghjhfy" />
-				</div>
+				
 				<div class="small_form_div">
 					<label class="label"> Select service</label> <br /> <select
 						name="haircutType" id="type_id" class="name-box-1" required>
@@ -49,7 +68,7 @@
 				<div class="small_form_div">
 					<label class="label">Haircut photo</label> <br /> <input required
 					name="haircutURL"
-					value="q=tbn:ANd9GcTgw256XHMSlaLXXtTDJxi96fwZP3EZmoE5Fg&usqp=CAU"
+					value="https://productimages.withfloats.com/serviceimages/tile/61d18e8ace08b1551a7cda07Men%20Haircut"
 						class="name-box-1" type="url" id="design_photo" />
 				</div>
 				<div class="three_buttons">

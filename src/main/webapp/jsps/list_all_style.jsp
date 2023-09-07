@@ -39,15 +39,7 @@
                 <a href="../pages/customer_beard_style.html">Beard trim</a>
                 </div>
               </div>
-              <a class="nav" href="../pages/customer_book_now.html">book now</a>
-              <a class="nav" href="./customer_booked_history.html">Booked history</a>
-              <a class="nav" href="../pages/customer_profile.html"
-                ><img
-                  src="../images/profile-2.png"
-                  alt="profile"
-                  height="30px"
-                  width="30px"
-              /></a>
+             
             </nav>
           </div>
         </div>
@@ -110,7 +102,7 @@
         </div>
       </div>
 
-      <!-- 8 styles -->
+      
             <div class="all_styles">
       <%
       List<Style> styles = new StyleService().getAllStyles();

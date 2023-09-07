@@ -37,12 +37,11 @@
 								href="./pages/beard_style.html">Beard trim</a>
 						</div>
 					</div>
-					<a class="nav" href="./pages/services.html">services</a>
 					<div class="nav_dropdown">
 						<button class="nav_dropbtn">Login</button>
 						<div class="nav_dropdown-content">
 							<a href="login.jsp">Customer</a> <a
-								href="./pages/barber_login.html">Barber</a>
+								href="barber_login.jsp">Barber</a>
 						</div>
 					</div>
 				</nav>

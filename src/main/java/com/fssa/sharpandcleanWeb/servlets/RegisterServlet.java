@@ -16,16 +16,14 @@ import com.fssa.sharpandclean.model.User;
 import com.fssa.sharpandclean.service.UserService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
-/**
- * Servlet implementation class Registration
- */
+
 @WebServlet("/jsps/registration")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		super.doGet(req, resp);
 	}  
 

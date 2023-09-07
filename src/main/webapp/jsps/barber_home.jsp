@@ -4,16 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Barber home page</title>
 <link rel="stylesheet" href="../css/universe.css" />
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/about_us.css">
     <link rel="stylesheet" href="../css/contact_us.css">
 </head>
 <body>
-
-
-
 
 <%
 	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
@@ -25,11 +22,10 @@
 
 
 
-
 <header>
       <div class="header">
         <div>
-          <a href="../pages/customer_home.html">
+          <a href="../pages/barber_home.html">
             <img
               class="logo_img"
               src="../images/sharp logo black.png"
@@ -43,23 +39,22 @@
               <button class="nav_dropbtn">Hair styles</button>
               <div class="nav_dropdown-content">
                 <a href="list_all_style.jsp">Haircut</a>
-                <a href="../pages/customer_fade_style.html">Hair straightening</a>
-                <a href="../pages/customer_long_style.html">Hair coloring</a>
-                <a href="../pages/customer_undercut_style.html">Facials</a>
-                <a href="../pages/customer_short_style.html">Shaves</a>
-                <a href="../pages/customer_beard_style.html">Beard trim</a>
+                <a href="../pages/barber_fade_style.html"
+                  >Hair straightening</a
+                >
+                <a href="../pages/barber_long_style.html">Hair coloring</a>
+                <a href="../pages/barber_undercut_style.html">Facials</a>
+                <a href="../pages/barber_short_style.html">Shaves</a>
+                <a href="../pages/barber_beard_style.html">Beard trim</a>
               </div>
             </div>
             
-            <a class="nav" href="../jsps/profileUpdate.jsp"
-              ><img
-                src="../images/profile-2.png"
-                alt="profile"
-                height="30px"
-                width="30px"
-            /></a>
-            <a class="nav" href="LogoutServlet">logout</a>
+         
+          
+            <a class="nav" href="create_style.jsp">Create hair-Style</a>
             
+            
+           
           </nav>
         </div>
       </div>
@@ -193,7 +188,7 @@
     </div>
     
     
-    <section>
+    <section >
     <div class="review">
       <h2>Testimonials</h2>
       <p>We value our customers' feedback and strive to provide exceptional services that leave a lasting impression.<br> Visit our barber shop and experience the same level of satisfaction that our customers rave about.</p>
@@ -270,6 +265,7 @@
             </div>
             <div class="cont_subject_cnt">
               <input
+                
                 type="text"
                 class="cont_subject"
                 id="cont_subject"
@@ -279,6 +275,7 @@
             </div>
             <div class="cont_msg_ctn">
               <textarea
+             
                 name="msg"
                 cols="30"
                 rows="4"
@@ -294,6 +291,11 @@
       </div>
     </div>
   </div>
+
+
+
+    
+  
     <!-- section is ended -->
 
     <!-- footer is started -->
@@ -334,8 +336,6 @@
         </div>
       </div>
     </footer>
-
-
 
 </body>
 </html>

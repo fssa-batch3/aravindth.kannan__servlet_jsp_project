@@ -17,11 +17,6 @@ import com.fssa.sharpandclean.service.UserService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
 
-
-/**
- * Servlet implementation class LoginServlet
- */
-
 @WebServlet("/jsps/login")
 public class LoginServlet extends HttpServlet {
 
@@ -29,7 +24,6 @@ public class LoginServlet extends HttpServlet {
        
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		super.doGet(req, resp);
 	}
 
@@ -43,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		UserService userService = new UserService();
 		try {
-			if(userService.loginUser(user,email)) {
+			if(userService.loginUser(user)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("loggedInEmail", email);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
@@ -56,28 +50,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("login.jsp?errorMessage="+e.getMessage());
 			out.println(e.getMessage());
 		}
-//		if(email == null || "".equals(email)) {
-//			out.println("Invalid Email");
-//			response.sendRedirect("login.jsp?errorMessage=Invalid Email");
-//
-//			//response.sendRedirect("login.html");
-//		}
-//		
-//		else if(password == null || "".equals(password) || password.length() < 6) {
-//			response.sendRedirect("login.jsp?errorMessage=Invalid Password");	
-//
-//			// response.sendRedirect("login.html");	
-//		}
-//		else {
-//		
-//		
-//			out.println("Email and password is valid");
-//     		//response.sendRedirect("home.html");
-//     		HttpSession session = request.getSession();
-//			session.setAttribute("loggedInEmail", email);
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
-//			dispatcher.forward(request, response);
-//		}
+
 		
 	}
 
