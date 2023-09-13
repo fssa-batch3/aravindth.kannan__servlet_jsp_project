@@ -17,14 +17,16 @@ import com.fssa.sharpandclean.service.UserService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
 
-@WebServlet("/jsps/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
        
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doGet(req, resp);
+
+		RequestDispatcher re = req.getRequestDispatcher("/jsps/login.jsp");
+		re.forward(req, resp);
 	}
 
 
@@ -33,21 +35,22 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		User user = new User(email, password);
+		
 	
 		PrintWriter out = response.getWriter();
 		UserService userService = new UserService();
 		try {
-			if(userService.loginUser(user)) {
+				userService.loginUser(user);
 				HttpSession session = request.getSession();
 				session.setAttribute("loggedInEmail", email);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
-				dispatcher.forward(request, response);
+				
+				response.sendRedirect(request.getContextPath()+"/jsps/home.jsp");
 				out.println("Login success");	     	
-			}
+			
 			
 		}catch(ServiceException e) {
 			e.printStackTrace();
-			response.sendRedirect("login.jsp?errorMessage="+e.getMessage());
+			response.sendRedirect("login?errorMessage="+e.getMessage());
 			out.println(e.getMessage());
 		}
 

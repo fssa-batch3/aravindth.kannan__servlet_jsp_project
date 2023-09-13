@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
       <img
         class="logo"
         alt="image"
-        src="../images/sharp logo black.png"
+        src="<%=request.getContextPath()%>/images/sharp logo black.png"
       />
     </div>
     <form action="login"  method="post">
@@ -71,7 +71,7 @@
         </div>
 
         <div class="forgot-password">
-          <a href="./register.jsp" class="forgot-password-1"
+          <a href="<%=request.getContextPath()%>/jsps/register.jsp" class="forgot-password-1"
             ><p>Sign up</p></a
           >
         </div>

@@ -1,8 +1,8 @@
+<%@page import="com.fssa.sharpandclean.service.BarberService"%>
+<%@page import="com.fssa.sharpandclean.service.StyleService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="com.fssa.sharpandclean.service.BarberService"%>
     <%@ page import="java.util.List"%>
-        <%@page import="com.fssa.sharpandclean.service.StyleService"%>
     <%@ page import="com.fssa.sharpandclean.model.Barber"%> 
 <%@ page import="com.fssa.sharpandclean.model.Style"%>     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
