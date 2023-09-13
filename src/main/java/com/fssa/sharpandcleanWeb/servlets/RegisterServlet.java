@@ -1,11 +1,8 @@
 package com.fssa.sharpandcleanWeb.servlets;
 
 import java.io.IOException;
-
-
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,16 +14,12 @@ import com.fssa.sharpandclean.service.UserService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
 
-@WebServlet("/jsps/registration")
+
+@WebServlet("/pages/registration")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		super.doGet(req, resp);
-	}  
-
+	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String userName = request.getParameter("name");
@@ -39,15 +32,14 @@ public class RegisterServlet extends HttpServlet {
 		User user1 = new User( email, userName, password, phoneNumber, "user");
 		try {
 			if (userService.registerUser(user1)) {
-				out.println("Registration successful");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-				dispatcher.forward(request, response);
-
+				
+				response.sendRedirect(request.getContextPath()+"/pages/customer_login.jsp");
 			} else {
 				out.println("Registration failed");
 			}
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			out.println(e.getMessage());
+			response.sendRedirect(request.getContextPath()+"/pages/customer_register.jsp");
 		}
 
 	}

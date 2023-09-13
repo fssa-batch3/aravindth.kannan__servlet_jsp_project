@@ -1,7 +1,6 @@
 package com.fssa.sharpandcleanWeb.servlets;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -13,12 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fssa.sharpandclean.model.Style;
-
 import com.fssa.sharpandclean.service.StyleService;
-
 import com.fssa.sharpandclean.service.exception.StyleException;
-import com.google.protobuf.ServiceException;
-
 
 @WebServlet("/jsps/CreateStyleServlet")
 public class CreateStyleServlet extends HttpServlet {

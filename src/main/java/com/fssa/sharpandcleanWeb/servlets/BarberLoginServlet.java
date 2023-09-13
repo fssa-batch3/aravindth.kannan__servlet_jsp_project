@@ -16,19 +16,17 @@ import com.fssa.sharpandclean.service.BarberService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
 
-@WebServlet("/jsps/BarberLoginServlet")
+@WebServlet("/pages/barberlogin")
 public class BarberLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
+    @Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		RequestDispatcher re = request.getRequestDispatcher("/pages/barber_login.jsp");
+		re.forward(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String barberEmail = request.getParameter("barber_email");
 		String barberPassword = request.getParameter("barber_password");
 		Barber barber = new Barber(barberEmail, barberPassword);
@@ -36,13 +34,10 @@ public class BarberLoginServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		BarberService barberService = new BarberService();
 		try {
-			if(barberService.loginBarber(barber, barberEmail)) {
+		        barberService.loginBarber(barber); 
 				HttpSession session = request.getSession();
 				session.setAttribute("loggedInEmail", barberEmail);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("barber_home.jsp");
-				dispatcher.forward(request, response);
-				out.println("Login success");
-			}
+				response.sendRedirect(request.getContextPath()+"/pages/barber_home.jsp");
 		}catch(ServiceException e) {
 			e.printStackTrace();
 			response.sendRedirect("login.jsp?errorMessage="+e.getMessage());
