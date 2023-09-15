@@ -1,14 +1,11 @@
 package com.fssa.sharpandcleanWeb.servlets;
-
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.fssa.sharpandclean.model.Barber;
 import com.fssa.sharpandclean.service.BarberService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
@@ -38,7 +35,7 @@ public class BarberRegisterServlet extends HttpServlet {
 	            response.sendRedirect(request.getContextPath()+"/pages/barber_login.jsp");
 	            
 	        } catch (ServiceException e) {
-				response.sendRedirect(request.getContextPath()+"/pages/barber_register.jsp?error="+ e);
+				response.sendRedirect(request.getContextPath()+"/pages/barber_register.jsp?error="+e);
 				out.print(e.getMessage());
 	        }
 	}

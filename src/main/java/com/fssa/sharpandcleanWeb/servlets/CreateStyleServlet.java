@@ -15,16 +15,10 @@ import com.fssa.sharpandclean.model.Style;
 import com.fssa.sharpandclean.service.StyleService;
 import com.fssa.sharpandclean.service.exception.StyleException;
 
-@WebServlet("/jsps/CreateStyleServlet")
+@WebServlet("/pages/CreateStyleServlet")
 public class CreateStyleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		doPost(request, response);
-	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +26,6 @@ public class CreateStyleServlet extends HttpServlet {
 		  HttpSession session = request.getSession();
 		    
 		    String loggedInEmail = (String) session.getAttribute("loggedInEmail");
-		System.out.println(loggedInEmail);    
 		String haircutName = request.getParameter("haircutName");
 		String haircutBarbersEmail = loggedInEmail;
 		String hairCutType = request.getParameter("haircutType");
@@ -47,7 +40,6 @@ public class CreateStyleServlet extends HttpServlet {
 		System.out.println(styles);
 		try {
 			if (styleService.addStyle(styles)) {
-				out.println("Style successfully Added");
 				RequestDispatcher dispatcher = request.getRequestDispatcher("barber_home.jsp");
 				dispatcher.forward(request, response);
 			} else {

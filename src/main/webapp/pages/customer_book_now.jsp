@@ -36,7 +36,7 @@
           </p>
         </div>
         <div class="select-button">
-          <a href="./customer_select_shop.html"
+          <a href="customer_select_shop.jsp"
             ><button class="select-button-1">SELECT</button></a
           >
         </div>
@@ -60,7 +60,7 @@
           </p>
         </div>
         <div class="select-button">
-          <a href="./customer_select_barber.html"
+          <a href="customer_select_barber.jsp"
             ><button class="select-button-1">SELECT</button></a
           >
         </div>

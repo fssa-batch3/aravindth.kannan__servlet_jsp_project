@@ -36,7 +36,7 @@
 	
 		<div class="form_div">
 			<p class="test_head">Create new hair-style</p>
-			<form  class="add_style_form" action="CreateStyleServlet" method="post">
+			<form  class="add_style_form" action="" method="post">
 				<div class="small_form_div">
 					<label class="label">Hair-style name</label> <br /> <input
 					name="haircutName"
@@ -46,7 +46,8 @@
 				</div>
 				
 				<div class="small_form_div">
-					<label class="label"> Select service</label> <br /> <select
+					<label class="label"> Select service</label> <br />
+					 <select
 						name="haircutType" id="type_id" class="name-box-1" required>
 						<option>Haircut</option>
 						<option>Hair coloring</option>

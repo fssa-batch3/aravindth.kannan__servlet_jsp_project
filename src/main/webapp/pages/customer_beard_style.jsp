@@ -10,6 +10,7 @@
   </head>
   <body>
     <jsp:include page="customer_header.jsp" /> 
+     
 
       <!-- search bar  start-->
     <div class="search_bar_div">

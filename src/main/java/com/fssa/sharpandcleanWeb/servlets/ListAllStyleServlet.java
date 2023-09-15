@@ -3,7 +3,6 @@ package com.fssa.sharpandcleanWeb.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,18 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.fssa.sharpandclean.model.Style;
 import com.fssa.sharpandclean.service.StyleService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
-
-//import com.fssa.sharpandclean.model.ProductDetails;
-//import com.fssa.sharpandclean.services.ProductService;
-//import com.fssa.sharpandclean.services.exceptions.ServiceException;
-/**
- * Servlet implementation class GetAllProductServlet
- */
 @WebServlet("/ListAllStyleServlet")
 public class ListAllStyleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

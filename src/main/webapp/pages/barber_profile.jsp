@@ -9,53 +9,16 @@
     <title>barber profile</title>
   </head>
   <body>
+  
+  <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("barber_login.jsp");
+	}
+%>
     <!-- header is started -->
-    <header>
-      <div class="header">
-        <div>
-          <a href="../pages/barber_home.html">
-            <img
-              class="logo_img"
-              src="../Assets/Images/sharp logo black.png"
-              alt="logo"
-            />
-          </a>
-        </div>
-        <div>
-          <nav class="All-navs">
-            <div class="nav_dropdown">
-              <button class="nav_dropbtn">Hair styles</button>
-              <div class="nav_dropdown-content">
-                <a href="../pages/barber_medium_style.html">Haircut</a>
-                <a href="../pages/barber_fade_style.html"
-                  >Hair straightening</a
-                >
-                <a href="../pages/barber_long_style.html">Hair coloring</a>
-                <a href="../pages/barber_undercut_style.html">Facials</a>
-                <a href="../pages/barber_short_style.html">Shaves</a>
-                <a href="../pages/barber_beard_style.html">Beard trim</a>
-              </div>
-            </div>
-            <a class="nav" href="../pages/barber_card.html">Apply barber </a>
-            <a class="nav" href="../pages/barber_shop_card.html"
-              >Register shop
-            </a>
-            <a class="nav" href="../pages/barber_booking_list.html"
-              >booking list</a
-            >
-            <a class="nav" href="./barber_profile.html">Barber profile</a>
-            <a class="nav" href="./shop_profile.html">Shop profile</a>
-            <a class="nav" href="./barber_account_profile.html"
-              ><img
-                src="../Assets/Images/profile-2.png"
-                alt="profile"
-                height="30px"
-                width="30px"
-            /></a>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <jsp:include page="barber_header.jsp" />
     <!-- header is ended -->
 
     <!-- section is started -->
@@ -187,12 +150,13 @@
     <div class="all_haircut_designs">
       <div class="form_div">
         <p>Add more haircuts</p>
-        <form id="add_form" class="add_style_form">
+        <form id="add_form" method="post" action="CreateStyleServlet" class="add_style_form">
           <div class="small_form_div">
             <label class="label">Haircut name</label>
 
             <br />
             <input
+            name="haircutName"
             value="fire coloring"
               required
               pattern="[A-Z a-z]{1,32}"
@@ -206,7 +170,7 @@
           <div class="small_form_div">
             <label class="label"> Select service</label>
             <br />
-            <select name="type" id="type_id" class="name-box-1" required>
+            <select name="haircutType" id="type_id" class="name-box-1" required>
               <option>Haircut</option>
               <option>Hair coloring</option>
               <option>Hair straitning</option>
@@ -221,6 +185,7 @@
 
             <br />
             <input
+            name="haircutAbout"
             value="This type coloring is going trending now. In this service we use fire to coloring your hair."
               required
               id="style_para"
@@ -233,7 +198,7 @@
           <div class="small_form_div">
             <label class="label">Haircut photo</label>
             <br />
-            <input required class="name-box-1" type="url" id="design_photo" />
+            <input required name="haircutURL" class="name-box-1" type="url" id="design_photo" />
           </div>
           <div class="three_buttons">
             <button class="submit_1">Submit</button>
