@@ -29,7 +29,7 @@ public class RegisterServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		UserService userService = new UserService();
-		User user1 = new User( email, userName, password, phoneNumber, "user");
+		User user1 = new User( email, userName, password, phoneNumber);
 		try {
 			if (userService.registerUser(user1)) {
 				

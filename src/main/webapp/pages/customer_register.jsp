@@ -62,21 +62,7 @@
       </div>
       <br />
 
-      <div class="all_inputs">
-        <label for="password" class="all_label"> Confirm Password</label>
-        <br />
-
-        <input
-          required
-          pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{8,}$"
-          title="Must contain at least one number and one uppercase and lowercase letter,at least 8 or more characters and must not contain space "
-          class="input"
-          value="Vikram@432"
-          type="password"
-          id="c_password"
-          autocomplete="password"
-        />
-      </div>
+     
       <br />
 
       <div class="all_inputs">

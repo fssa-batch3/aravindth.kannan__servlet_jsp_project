@@ -69,7 +69,7 @@ if (loggedInEmail == null) {
             </div>
             <a class="nav" href="customer_book_now.jsp">book now</a>
             <a class="nav" href="customer_booked_history.jsp">Booked history</a>
-            <a class="nav" href="customer_profile.jsp"
+            <a class="nav" href="GetUserByEmailServlet"
               ><img
                 src="../Assets/Images/profile-2.png"
                 alt="profile"

@@ -14,22 +14,15 @@ import com.fssa.sharpandclean.model.User;
 import com.fssa.sharpandclean.service.UserService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
-/**
- * Servlet implementation class UpdateUserServlet
- */
-@WebServlet("/jsps/UpdateUserServlet")
+
+@WebServlet("/pages/UpdateUserServlet")
 public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    HttpSession session = request.getSession();
 	    
@@ -41,17 +34,20 @@ public class UpdateUserServlet extends HttpServlet {
 	    UserService userService = new UserService();
 	    PrintWriter out = response.getWriter();
 	    
-	    User updatedUser = new User(loggedInEmail,newUserName, newPassword, newMobileNumber,"user");
+	    User updatedUser = new User(loggedInEmail,newUserName, newPassword, newMobileNumber);
 	   
 	    
 	    try {
-	        if (userService.updateUser(updatedUser)) {
-	            out.println("User Information Successfully Updated!");
-	        } else {
-	            out.println("Error updating user information.");
-	        }
+	        userService.updateUser(updatedUser);
+	        response.sendRedirect("customer_profile_page.jsp");
+	            
+	        
 	    } catch (ServiceException e) {
-	    	out.println("Error: " + e.getLocalizedMessage());
+//	    	out.println("Error: " + e.getLocalizedMessage());
+	    	String msg = e.getMessage();
+			String[] error = msg.split(":");
+			response.sendRedirect("customer_profile_page.jsp?error="+error[1]+"&email="+loggedInEmail);
+			out.print(e.getMessage());
 	    }
 	}
 }
