@@ -1,7 +1,7 @@
 package com.fssa.sharpandcleanWeb.servlets;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,15 +12,13 @@ import com.fssa.sharpandclean.model.Salon;
 import com.fssa.sharpandclean.service.SalonService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
-@WebServlet("/salonlist")
+@WebServlet("/pages/salonlist")
 public class SalonListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+ 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
-		PrintWriter out = response.getWriter();
 		
 		if(session != null) {
 			String loggedInEmail = (String) session.getAttribute("loggedInEmail");
@@ -28,14 +26,16 @@ public class SalonListServlet extends HttpServlet {
 				response.sendRedirect("pages/index.jsp");
 			}else {
 				try {
-					List<Salon> salons = new SalonService().getAllSalon();
+					SalonService salonService  = new SalonService();
+					List<Salon> salons = salonService.getAllSalon();
+					request.setAttribute("salonList", salons);
 					System.out.println(salons);
-					session.setAttribute("Styles_List", salons);
-					response.sendRedirect(request.getContextPath()+"/pages/customer_select_shop.jsp");
 				}catch(ServiceException e) {
-					String errormsg = ("Error in getting the salons: "+e.getMessage());
-					out.print(errormsg);
+					request.setAttribute("error", "Error fetching or displaying salons data:"+ e.getMessage());
+					e.printStackTrace();
 				}
+				 RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/customer_select_shop.jsp");
+			        dispatcher.forward(request, response);
 			}
 		}
 	}

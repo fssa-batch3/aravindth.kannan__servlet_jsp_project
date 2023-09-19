@@ -1,3 +1,8 @@
+<%@ page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="com.fssa.sharpandclean.service.SalonService"%>
+<%@ page import="com.fssa.sharpandclean.model.Salon"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,6 +27,70 @@
     <!-- section is started -->
     <p class="big-font">Select Your Shop</p>
     <div class="all-content">
+    
+    <!-- All salon cards are here -->
+     <%
+      List<Salon> salonlist = (List<Salon>) request.getAttribute("salonList");
+                if(salonlist != null && !salonlist.isEmpty()){
+      for(Salon salon1 : salonlist) {
+    	  
+      %>
+    
+    <div class="card">
+          <div class="profile-card">
+            <img
+              id="card_profile"
+              alt="shop image"
+              class="img-responsive"
+              src="<%= salon1.getSalonURL() %>"
+            />
+            <div class="name_div">
+              <h2 id="card_b_name" class="hvr-underline-from-center">
+               <%= salon1.getSalonName() %>
+              </h2>
+            </div>
+
+            <div class="sample_text_div">
+              <h2 class="hvr-underline-from-center">Sample haircuts</h2>
+            </div>
+            <div class="profile-info">
+              <img
+                id="card_sample_1"
+                alt="haircutname"
+                class="profile-pic"
+                src="<%= salon1.getSalonSample1() %>"
+              />
+
+              <img
+                id="card_sample_2"
+                alt="haircutname"
+                class="profile-pic"
+                src="<%= salon1.getSalonSample2() %>"
+              />
+
+              <img
+                id="card_sample_3"
+                alt="haircutname"
+                class="profile-pic"
+                src="<%= salon1.getSalonSample3() %>"  />
+            </div>
+
+            <div class="two_btn_div">
+              <a class="select_btn" href="shop_detail_page.jsp?salonId=<%=salon1.getSalonId()%>">Details</a>
+              <a class="select_btn">Select</a>
+            </div>
+          </div>
+        </div>
+        <%
+        }
+        } else {
+    	 %>
+    	 <p>No salons available</p>
+    	 <%
+     }
+    	 %>
+     
+       
       <!-- all cards assemble here -->
     </div>
     <!-- section is ended -->

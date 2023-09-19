@@ -36,7 +36,7 @@
           </p>
         </div>
         <div class="select-button">
-          <a href="customer_select_shop.jsp"
+          <a href="salonlist"
             ><button class="select-button-1">SELECT</button></a
           >
         </div>
