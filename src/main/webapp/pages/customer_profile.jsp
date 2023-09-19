@@ -46,7 +46,7 @@
         <label for="email" class="all_label">username:</label>
         <br />
         <br />
-        <input value="<%= user.getUsername() %>" class="form-control personName" id="usernsme"  />
+        <input name="name" value="<%= user.getUsername() %>" class="form-control personName" id="usernsme"  />
       </div>
       <div class="form-group">
         <label for="email" class="all_label">Email:</label>
@@ -58,21 +58,21 @@
         <label for="pwd" class="all_label">Password:</label>
         <br />
         <br />
-        <input value="<%= user.getPassword() %>" type="password" class="form-control personPassword" id="password"  />
+        <input name="password" value="<%= user.getPassword() %>" type="password" class="form-control personPassword" id="password"  />
       </div>
 	
       <div class="form-group">
         <label for="pwd" class="all_label">Phone number:</label>
         <br />
         <br />
-        <input value="<%= user.getPhonenumber() %>" type="text" class="form-control personPhone" id="phone"  />
+        <input name="phonenumber" value="<%= user.getPhonenumber() %>" type="text" class="form-control personPhone" id="phone"  />
       </div>
 
       <div class="submit">
-        <button action="LogoutServlet" method="Get" type="submit" class="delete_btn" id="delete_button">
+        <a href="LogoutServlet"  class="submit_btn" id="delete_button">
           Logout
-        </button>
-        <a class="submit_btn" > Update </a>
+        </a>
+        <button type="submit" class="delete_btn" > Update </button>
       </div>
     </form>
 

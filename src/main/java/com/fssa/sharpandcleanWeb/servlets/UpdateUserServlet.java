@@ -26,7 +26,7 @@ public class UpdateUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    HttpSession session = request.getSession();
 	    
-	    String loggedInEmail = (String) session.getAttribute("loggedInemail");  
+	    String loggedInEmail = (String) session.getAttribute("loggedInEmail");  
 	    String newUserName = request.getParameter("name");
 	    String newMobileNumber = request.getParameter("phonenumber");
 	    String newPassword = request.getParameter("password");
@@ -34,19 +34,18 @@ public class UpdateUserServlet extends HttpServlet {
 	    UserService userService = new UserService();
 	    PrintWriter out = response.getWriter();
 	    
-	    User updatedUser = new User(loggedInEmail,newUserName, newPassword, newMobileNumber);
+	    User updated_user = new User(loggedInEmail,newUserName, newPassword, newMobileNumber);
 	   
 	    
 	    try {
-	        userService.updateUser(updatedUser);
-	        response.sendRedirect("customer_profile_page.jsp");
+	        userService.updateUser(updated_user);
+	        response.sendRedirect("customer_profile.jsp");
 	            
-	        
 	    } catch (ServiceException e) {
 //	    	out.println("Error: " + e.getLocalizedMessage());
-	    	String msg = e.getMessage();
-			String[] error = msg.split(":");
-			response.sendRedirect("customer_profile_page.jsp?error="+error[1]+"&email="+loggedInEmail);
+//	    	String msg = e.getMessage();
+//			String[] error = msg.split(":");
+//			response.sendRedirect("customer_profile_page.jsp?error="+error[1]+"&email="+loggedInEmail);
 			out.print(e.getMessage());
 	    }
 	}
