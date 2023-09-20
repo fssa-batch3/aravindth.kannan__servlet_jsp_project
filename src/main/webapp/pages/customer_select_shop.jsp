@@ -77,7 +77,7 @@
 
             <div class="two_btn_div">
               <a class="select_btn" href="shop_detail_page.jsp?salonId=<%=salon1.getSalonId()%>">Details</a>
-              <a class="select_btn">Select</a>
+              <a href="customer_shop_booking_form.jsp?salonId=<%=salon1.getSalonId() %>" class="select_btn">Select</a>
             </div>
           </div>
         </div>

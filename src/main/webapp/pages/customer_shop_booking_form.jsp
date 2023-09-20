@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+     <%@ page import="com.fssa.sharpandclean.service.exception.ServiceException"%>
+<%@page import="com.fssa.sharpandclean.service.SalonService"%>
+<%@ page import="com.fssa.sharpandclean.model.Salon"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +17,20 @@
     <link rel="stylesheet" href="../Assets/CSS/universe.css" />
   </head>
   <body>
+  
+  <%
+		int salon_id = Integer.parseInt(request.getParameter("salonId"));
+
+		SalonService salonService = new SalonService();
+		Salon salon = null;
+
+		try {
+			salon = salonService.getSalonBySalonId(salon_id);
+		} catch (ServiceException e) {
+			// Handle the exception appropriately, e.g., display an error message to the user or log it
+			out.println("Error: " + e.getMessage());
+		}
+		%>
     <jsp:include page="customer_header.jsp" />
     <!-- header finished -->
     <form id="booking" class="content-1">
@@ -78,7 +97,54 @@
           <button id="next_btn" class="book">Next</button>
         </div>
       </div>
-      <div class="right-side"></div>
+      <div class="right-side">
+      <div class="card">
+          <div class="profile-card">
+            <img
+              id="card_profile"
+              alt="shop image"
+              class="img-responsive"
+              src="<%= salon.getSalonURL() %>"
+            />
+            <div class="name_div">
+              <h2 id="card_b_name" class="hvr-underline-from-center">
+               <%= salon.getSalonName() %>
+              </h2>
+            </div>
+
+            <div class="sample_text_div">
+              <h2 class="hvr-underline-from-center">Sample haircuts</h2>
+            </div>
+            <div class="profile-info">
+              <img
+                id="card_sample_1"
+                alt="haircutname"
+                class="profile-pic"
+                src="<%= salon.getSalonSample1() %>"
+              />
+
+              <img
+                id="card_sample_2"
+                alt="haircutname"
+                class="profile-pic"
+                src="<%= salon.getSalonSample2() %>"
+              />
+
+              <img
+                id="card_sample_3"
+                alt="haircutname"
+                class="profile-pic"
+                src="<%= salon.getSalonSample3() %>"  />
+            </div>
+
+            <div class="two_btn_div">
+              <a class="select_btn" href="shop_detail_page.jsp?salonId=<%=salon.getSalonId()%>">Details</a>
+              <a href="customer_shop_booking_form.jsp" class="select_btn">Select</a>
+            </div>
+          </div>
+        </div>
+      <!-- salon card here -->
+      </div>
     </form>
 
     <script>
