@@ -9,7 +9,14 @@ body {
   display: flex;
   justify-content: center;
 }
-
+.all_service_drop_btn {
+  width: 97%;
+  padding-left: 2%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: transparent;
+}
 .head_text {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 50px;

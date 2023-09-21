@@ -75,7 +75,7 @@
           </div>
 
           <div class="three_buttons">
-            <a href="customer_shop_booking_form.jsp" class="select_btn">Select</a>
+            <a href="customer_shop_booking_form.jsp?salonId=<%=salon.getSalonId() %>" class="select_btn">Select</a>
             <!-- <a href="./customer_shop_booking_form.html" id="delete_shop" class="create_card">Select</a> -->
           </div>
         </div>
