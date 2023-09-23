@@ -59,16 +59,16 @@ if (loggedInEmail == null) {
             <div class="nav_dropdown">
               <button class="nav_dropbtn">Hair styles</button>
               <div class="nav_dropdown-content">
-                <a href="customer_medium_style.jsp">Haircut</a>
-                <a href="customer_fade_style.jsp">Hair straightening</a>
-                <a href="customer_long_style.jsp">Hair coloring</a>
-                <a href="customer_undercut_style.jsp">Facials</a>
-                <a href="customer_short_style.jsp">Shaves</a>
-                <a href="customer_beard_style.jsp">Beard trim</a>
+                <a href="medium_style.jsp">Haircut</a>
+                <a href="fade_style.jsp">Hair straightening</a>
+                <a href="long_style.jsp">Hair coloring</a>
+                <a href="undercut_style.jsp">Facials</a>
+                <a href="short_style.jsp">Shaves</a>
+                <a href="beard_style.jsp">Beard trim</a>
               </div>
             </div>
-            <a class="nav" href="customer_book_now.jsp">book now</a>
-            <a class="nav" href="customer_booked_history.jsp">Booked history</a>
+            <a class="nav" href="customer_book_now.jsp">book appointment</a>
+            <a class="nav" href="GetBookingByUserEmailServlet">Booked history</a>
             <a class="nav" href="GetUserByEmailServlet"
               ><img
                 src="../Assets/Images/profile-2.png"

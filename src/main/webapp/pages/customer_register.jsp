@@ -70,10 +70,11 @@
         <br />
 
         <input required 
+        
         value="9887766576"
-        pattern="[7-9]{1}[0-9]{9}" 
+        pattern="^\d{10}$"
        title="Phone number with 7-9 and remaing 9 digit with 0-9"
-        class="input" type="number" id="phone_number" name="phonenumber" />
+        class="input" type="tel" id="phone_number" name="phonenumber" />
       </div>
 
       <div class="submit">

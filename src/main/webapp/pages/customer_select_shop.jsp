@@ -25,7 +25,7 @@
      <!-- search bar end-->
 
     <!-- section is started -->
-    <p class="big-font">Select Your Shop</p>
+    <p class="big-font">Select your Salon</p>
     <div class="all-content">
     
     <!-- All salon cards are here -->

@@ -34,42 +34,42 @@
         <div class="profile">
           <img class="photo" src="<%= salon.getSalonURL() %>" id="photo" alt="shop card profile"/>
           <div class="right_side">
-            <p class="text">Scissor Masters</p>
+            <p class="text">Sharp & Clean</p>
             <br />
-            <p class="text">Official shops</p>
+            <p class="text">Official Salons</p>
           </div>
         </div>
 
         <div class="information">
           <div class="input_div">
-            <label class="label">Shop Name </label>
+            <label class="label">Salon Name </label>
             <br />
             <input value="<%= salon.getSalonName() %>" class="input" type="text" id="shop_name" disabled />
           </div>
 
           <div class="input_div">
-            <label class="label">Shop experience </label>
+            <label class="label">Salon Experience </label>
             <br />
             <input value="<%= salon.getSalonExperience() %>" class="input" type="text" id="shop_experience" disabled />
           </div>
           <div class="input_div">
-            <label class="label"> Shop Area </label>
+            <label class="label"> Salon Area </label>
             <br />
             <input value="<%= salon.getSalonArea() %>" class="input" type="text" id="shop_slogan" disabled />
           </div>
           <div class="input_div">
-            <label class="label"> Shop phone </label>
+            <label class="label"> Salon Phone </label>
             <br />
             <input value="<%= salon.getSalonPhone() %>" class="input" type="text" id="shop_haircut_price" disabled />
           </div>
 
           <div class="big_input_div">
-            <label class="label"> Shop address </label>
+            <label class="label"> Salon Address </label>
             <br />
             <input value="<%= salon.getSalonAddress() %>" class="big_input" type="text" id="shop_address" disabled />
           </div>
           <div class="big_input_div">
-            <label class="label">About shop </label>
+            <label class="label">About Salon </label>
             <br />
             <input value="<%=salon.getSalonAbout() %>" class="big_input" type="text" id="shop_about_id" disabled />
           </div>
@@ -83,7 +83,7 @@
 
       <!-- samples of that shop -->
       <div class="all_haircuts">
-        <p class="samples">Shop's sample haircuts</p>
+        <p class="samples">Salon's sample haircuts</p>
         <div class="about_shop">
         
         </div>

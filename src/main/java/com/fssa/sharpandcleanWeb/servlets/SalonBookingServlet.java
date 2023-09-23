@@ -12,12 +12,13 @@ import javax.servlet.http.HttpSession;
 
 import com.fssa.sharpandclean.model.Salon;
 import com.fssa.sharpandclean.model.SalonBook;
+import com.fssa.sharpandclean.service.GenerateOTP;
 import com.fssa.sharpandclean.service.SalonService;
 import com.fssa.sharpandclean.service.exception.ServiceException;
 
 
 @WebServlet("/pages/SalonBookingServlet")
-public class SalonBookingServlet extends HttpServlet {
+public class SalonBookingServlet<LocalDate> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 
@@ -26,15 +27,19 @@ public class SalonBookingServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
 	    String loggedInEmail = (String) session.getAttribute("loggedInEmail"); 
-	    System.out.print(loggedInEmail);
 	    String userEmail = loggedInEmail;
 	    String userPhone = request.getParameter("bookUserPhone");
 		String username = request.getParameter("bookUsername");
 		String service = request.getParameter("bookingservice");
-		String date = request.getParameter("bookdate");
+//		LocalDate date = (LocalDate) request.getParameter("bookdate");
+		java.time.LocalDate date = java.time.LocalDate.parse(request.getParameter("bookdate"));
+
 		String time = request.getParameter("bookTime");
 		 int salonID = Integer.parseInt(request.getParameter("saloonId"));
 		 try { 
+			 GenerateOTP generate = new GenerateOTP();
+			String OTP = generate.generateOTP();
+			System.out.println(OTP);
 		 SalonService salonService = new  SalonService();
 		Salon salon = null;
 		 
@@ -66,6 +71,7 @@ public class SalonBookingServlet extends HttpServlet {
 		 salonBook.setSalonAddress(salonAddress);
 		 salonBook.setSalonAbout(salonAbout);
 		 salonBook.setSalonArea(salonArea);
+		 salonBook.setSalonOTP(OTP);
 		 
 		 salonService.bookingSalon(salonBook);
 		 System.out.println("Salon created");

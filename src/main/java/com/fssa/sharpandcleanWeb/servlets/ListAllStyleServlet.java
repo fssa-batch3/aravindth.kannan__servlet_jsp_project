@@ -32,7 +32,7 @@ public class ListAllStyleServlet extends HttpServlet {
 				try {
 					List<Style> styles = new StyleService().getAllStyles();
 					System.out.println(styles);
-					session.setAttribute("Styles_List", styles);
+					request.setAttribute("Styles_List", styles);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("getAllStyle.jsp");
 					dispatcher.forward(request, response);
 				} catch (ServiceException e) {
@@ -42,6 +42,5 @@ public class ListAllStyleServlet extends HttpServlet {
 			}
 		}
 	}
-
 
 }

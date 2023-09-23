@@ -51,7 +51,7 @@
             <p>
               Welcome to Sharp & Clean, where exceptional grooming meets unparalleled style. We are a dedicated team of skilled barbers committed to providing you with the finest grooming experience in Thoothukudi -08. Step into our barbershop, and allow us to take care of all your grooming needs with precision, passion, and a touch of old-fashioned charm.
     
-    At Sharp & Clean, we believe that a great haircut is more than just a trim; it's an art form. Our team of experienced barbers brings years of expertise and a deep understanding of men's hairstyles and grooming trends. With their attention to detail and mastery of classic and contemporary cutting techniques, they will help you discover a look that perfectly complements your individual style and personality.
+          At Sharp & Clean, we believe that a great haircut is more than just a trim; it's an art form. Our team of experienced barbers brings years of expertise and a deep understanding of men's hairstyles and grooming trends. With their attention to detail and mastery of classic and contemporary cutting techniques, they will help you discover a look that perfectly complements your individual style and personality.
             </p>
           </div>
         </div>

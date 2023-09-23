@@ -105,7 +105,7 @@
 					sophistication! We are delighted to have you here, and we can't
 					wait to provide you with an exceptional grooming experience that
 					will leave you looking and feeling your absolute best.</p>
-				<a href="#" class="bookbtn">Book now</a>
+				<a href="customer_login.jsp" class="bookbtn">Book now</a>
 			</div>
 		</div>
 	</section>

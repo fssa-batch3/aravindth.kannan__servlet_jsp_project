@@ -15,12 +15,12 @@
 
     <!-- section is started -->
     <div class="haircut">
-      <p class="haircut-1">Booking for Haircut</p>
+      <p class="haircut-1">Appointment booking</p>
     </div>
     <div class="selecters">
       <div class="book">
         <div class="book-head">
-          <p class="book-head-1">Book a shop for your time</p>
+          <p class="book-head-1">Book appointment in salon</p>
         </div>
         <div class="book-img">
           <img
@@ -44,7 +44,7 @@
 
       <div class="book">
         <div class="book-head">
-          <p class="book-head-1">Book a barber for your haircut</p>
+          <p class="book-head-1">Book appointment with barber</p>
         </div>
         <div class="book-img">
           <img
@@ -61,7 +61,7 @@
         </div>
         <div class="select-button">
           <a href="customer_select_barber.jsp"
-            ><button class="select-button-1">SELECT</button></a
+            ><button class="select-button-1">Coming soon</button></a
           >
         </div>
       </div>

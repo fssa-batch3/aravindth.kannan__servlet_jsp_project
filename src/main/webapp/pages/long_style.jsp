@@ -1,3 +1,11 @@
+<%@page import="com.fssa.sharpandclean.service.StyleService"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+   
+<%@ page import="java.util.List"%>
+<%@ page import="com.fssa.sharpandclean.model.Style"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -98,16 +106,33 @@
         </div>
       </div>
 
-      <!-- 8 styles -->
+         <div class="all_styles">
+      <%
+      List<Style> styles = new StyleService().getAllStyles();
+                		
+      for(Style style1 : styles) {
+    	  
+      %>
 
-      <div class="all_styles">
-        <!-- all styles here -->
+
+      <div class="card">
+      
+          <img class="card_img" src="<%= style1.getHaircutUrl() %>" alt="">
+         
+          <div class="card-content">
+            <h2 class="card-title"><%= style1.getHaircutName() %></h2>
+            <p class="card-text"><%= style1.getHaircutAbout() %></p>
+          </div>
+        </div>
+        
+        <%
+        }
+        %>
+  <!-- all styles here -->
       </div>
     </section>
 
-    <div class="back_div">
-      <a class="back_btn" href="/index.html">Back</a>
-    </div>
+  
 <!-- footer -->
 <footer>
   <div class="footer">
@@ -148,42 +173,7 @@
 </footer>
     
 
-<script>
-  // JSON
 
-  let hair_type = "Hair coloring";
-  const shopNewHaircuts = JSON.parse(localStorage.getItem("shop_newhaircuts")).filter(F => F.shop_hair_type == hair_type);
-  
-  // card java script
-
-  for (let i = 0; i < shopNewHaircuts.length; i++) {
-    let big_div = document.createElement("div");
-    big_div.setAttribute("class", "card");
-    document.querySelector(".all_styles").append(big_div);
-
-    let image = document.createElement("img");
-    image.setAttribute("class", "card_img");
-    image.setAttribute("src", shopNewHaircuts[i]["shop_haircutImage"]);
-    image.setAttribute("alt", shopNewHaircuts[i]["shop_haircutname"]);
-    image.setAttribute("alt", "image");
-    big_div.append(image);
-
-    let content_div = document.createElement("div");
-    content_div.setAttribute("class", "card-content");
-    big_div.append(content_div);
-
-    let name = document.createElement("h2");
-    name.setAttribute("class", "card-title");
-    name.innerText = shopNewHaircuts[i]["shop_haircutname"];
-    content_div.append(name);
-
-    let text = document.createElement("p");
-    text.setAttribute("class", "card-text");
-    text.innerText = shopNewHaircuts[i]["shop_haircut_para"];
-    content_div.append(text);
-  }
-
-</script>
 <script src="../Assets/JS/search_br.js"></script>
   </body>
 </html>

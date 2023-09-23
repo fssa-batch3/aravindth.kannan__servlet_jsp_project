@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>booking-shop</title>
+    <title>booking-salon</title>
     <link
       rel="stylesheet"
       href="../Assets/CSS/customer_shop_booking_form.css"
@@ -18,32 +18,34 @@
   </head>
   <body>
   
-  <%
+      <%
 		int salon_id = Integer.parseInt(request.getParameter("salonId"));
 
 		SalonService salonService = new SalonService();
 		Salon salon = null;
-
+		
 		try {
 			salon = salonService.getSalonBySalonId(salon_id);
 		} catch (ServiceException e) {
 			// Handle the exception appropriately, e.g., display an error message to the user or log it
 			out.println("Error: " + e.getMessage());
 		}
-		%>
+		 %>
     <jsp:include page="customer_header.jsp" />
     <!-- header finished -->
     <form action="SalonBookingServlet" method="post" id="booking" class="content-1">
+    
+    
     <input type="hidden" name="saloonId" value="<%=salon.getSalonId() %>"/>
       <div class="left-side">
         <div class="booking-shop">
           <p class="font">Booking Your Salon</p>
         </div>
         <div class="name">
-          <p class="name-1">Your name</p>
+          <p class="name-1">Your Name</p>
           <input
-          name="bookUsername"
-            value="kavi"
+            name="bookUsername"
+           
             id="shop_name"
             class="name-input"
             type="text"
@@ -53,19 +55,19 @@
           />
         </div>
         <div class="name">
-        <p  class="name-1">phone number</p>
+        <p  class="name-1">Phone Number</p>
         
 
         <input required 
         name="bookUserPhone"
-        value="9887766576"
+        
         pattern="[7-9]{1}[0-9]{9}" 
        title="Phone number with 7-9 and remaing 9 digit with 0-9"
-        class="name-input" type="number" id="phone_number"  />
+        class="name-input" type="tel" id="phone_number"  />
       </div>
         
         <div class="select_div">
-          <label class="name-1"> Select service</label>
+          <label class="name-1"> Select Service</label>
           <br />
           <select
             name="bookingservice"
@@ -82,7 +84,7 @@
           </select>
         </div>
         <div class="phone">
-          <p class="phone-1">Date</p>
+          <p class="phone-1">Appointment Date</p>
           <input
           name="bookdate"
           onchange="checkDate()"
@@ -109,7 +111,7 @@
             <option>06:00Pm - 07:00Pm</option>
           </select>
           <br />
-          <button type="submit" id="next_btn" class="book">Book now</button>
+          <button type="submit" id="next_btn" class="book" >Book Appointment</button>
         </div>
       </div>
       <div class="right-side">
@@ -157,7 +159,8 @@
       <!-- salon card here -->
       </div>
     </form>
-
    
+
+
   </body>
 </html>
