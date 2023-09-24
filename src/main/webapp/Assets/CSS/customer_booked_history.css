@@ -33,20 +33,21 @@ body {
     border: 1px solid black;
     box-shadow: 10px 10px 10px black;
     border-radius: 15px;
-    padding: 2%;
+    padding:1%;
     margin: 2% auto;
     width: 85%;
-    background-color: #f39a67;
-    background-image: linear-gradient(62deg, #f39a67 0%, #f7b815 100%);
+    background: rgb(208,251,251);
+    background: linear-gradient(0deg, rgba(208,251,251,1) 0%, rgba(235,235,202,1) 100%);
+
   }
   .booked_div h2 {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     border-bottom: 1px solid black;
   }
   .booked_div p {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 26px;
     text-decoration: underline;
   }
   .done_btn {

@@ -34,7 +34,7 @@
     <div class="both_list">
       <!-- shop booked list section is started -->
       <section class="shop_list">
-        <h2>Shop booked list</h2>
+        <h2>Salon booked list</h2>
          
          <%
          	List<SalonBook> salonBooks = (List<SalonBook>)request.getAttribute("bookList");

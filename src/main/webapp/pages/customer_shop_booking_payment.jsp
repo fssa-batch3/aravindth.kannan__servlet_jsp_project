@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page
+	import="com.fssa.sharpandclean.service.exception.ServiceException"%>
+<%@ page import="com.fssa.sharpandclean.service.SalonService"%>
+<%@ page import="com.fssa.sharpandclean.model.Salon"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,43 +14,47 @@
       rel="stylesheet"
       href="../Assets/CSS/customer_shop_booking_payment.css"
     />
-    <title>customer shop booking payment page</title>
+    <title>customer salon booked page</title>
   </head>
   <body>
+  <%
+		int salon_id = Integer.parseInt(request.getParameter("salonId"));
+
+		SalonService salonService = new SalonService();
+		Salon salon = null;
+
+		try {
+			salon = salonService.getSalonBySalonId(salon_id);
+		} catch (ServiceException e) {
+			// Handle the exception appropriately, e.g., display an error message to the user or log it
+			out.println("Error: " + e.getMessage());
+		}
+		%>
     <div class="full_content">
       <div class="content">
-        <div class="right_and_left">
-          <div class="left">
-            <h2>Schedule Details</h2>
-            <ul>
-              <li class="date_font" id="cus_name"></li>
-              <li class="date_font" id="date"></li>
-              <li class="date_font" id="time"></li>
-              <li class="date_font" id="haircut_name"></li>
-            </ul>
-          </div>
-          <img alt="shop Image" id="booked_shop_img" class="bottum">
+       
+        <div class="left">
+         
+          <img src="<%= salon.getSalonURL() %>" alt="shop Image"  class="bottum">
            
         </div>
         <div class="right">
-          <h2>Shop Details</h2>
+          <h2>Salon Details</h2>
 
-          <p class="shop_text" id="shop_name"></p>
-          <p class="shop_text" id="shop_ex"></p>
-          <p class="shop_text" id="shop_slogan"></p>
-          <p class="shop_text" id="shop_phone"></p>
-          <p class="shop_text" id="shop_address"></p>
-          <p class="shop_text" id="shop_about"></p>
+          <p class="shop_text" ><span class="text">Salon Name :</span> <%= salon.getSalonName() %></p>
+          <p class="shop_text" ><span class="text">Salon Phone :</span> <%= salon.getSalonPhone() %></p>
+          <p class="shop_text" ><span class="text">Salon Arae :</span> <%= salon.getSalonArea() %></p>
+          <p class="shop_text" ><span class="text">Salon Experience :</span> <%= salon.getSalonExperience() %></p>
+          <p class="shop_text" ><span class="text">Salon Address :</span> <%= salon.getSalonAddress() %></p>
+          <p class="shop_text" ><span class="text">About Salon :</span> <%= salon.getSalonAbout() %></p>
         </div>
+       
       </div>
-      <div class="payment_div" onclick="myFunction()">
-        <button class="payment_btn" id="book_btn">Book now</button>
+      <div class="payment_btn" >
+       
+         <p > Successfully booked</p>
       </div>
 
-      <div class="payment_success_div" id="success_message">
-        <img src="../Assets/Images/right_tick.gif" alt="success" />
-        <p class="payment_success_div_text">Successfully booked</p>
-      </div>
     </div>
 
     

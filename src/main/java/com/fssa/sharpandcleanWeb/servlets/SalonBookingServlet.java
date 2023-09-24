@@ -72,10 +72,8 @@ public class SalonBookingServlet<LocalDate> extends HttpServlet {
 		 salonBook.setSalonAbout(salonAbout);
 		 salonBook.setSalonArea(salonArea);
 		 salonBook.setSalonOTP(OTP);
-		 
 		 salonService.bookingSalon(salonBook);
-		 System.out.println("Salon created");
-		 response.sendRedirect(request.getContextPath()+"/pages/customer_shop_booking_payment.jsp");
+		 response.sendRedirect(request.getContextPath()+"/pages/customer_shop_booking_payment.jsp?salonId="+salonID);
 		 
 		 }catch(ServiceException e) {
 				response.sendRedirect(request.getContextPath()+"/pages/customer_shop_booking_form.jsp"+e);
