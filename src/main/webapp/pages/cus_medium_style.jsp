@@ -20,7 +20,7 @@
   </head>
   <body>
 
-    <jsp:include page="barber_header.jsp"/>
+    <jsp:include page="customer_header.jsp"/>
 
       <!-- search bar  start-->
     <div class="search_bar_div">

@@ -6,41 +6,45 @@
 <%@ page import="java.util.List"%>
 <%@ page import="com.fssa.sharpandclean.model.Style"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>medium</title>
-<link rel="stylesheet" href="../Assets/CSS/hair_style.css">
-    <link rel="stylesheet" href="../Assets/CSS/universe.css">
+    <title>long</title>
+    <link rel="stylesheet" href="../Assets/CSS/hair_style.css" />
+    <link rel="stylesheet" href="../Assets/CSS/universe.css" />
   </head>
   <body>
+    <jsp:include page="customer_header.jsp"/>
 
-    <jsp:include page="barber_header.jsp"/>
-
-      <!-- search bar  start-->
+    <!-- search bar  start-->
     <div class="search_bar_div">
       <input placeholder="Search here.." type="text" class="search_bar" id="search_bar_id"/>
     </div>
      <!-- search bar end-->
-   
 
     <div class="Short">
-      <p class="short-1">Haircut</p>
+      <p class="short-1">Hair coloring</p>
     </div>
     <section>
       <div class="big-div">
         <div class="big-img">
-          <img alt="image" src="../Assets/Images/medium-0.jpeg" class="big-img-1" />
+          <img
+            alt="image"
+            src="../Assets/Images/long-0.jpeg"
+            class="big-img-1"
+          />
         </div>
         <div class="two-img">
           <div class="font-1">
             <div class="small-pic">
-              <img alt="image" src="../Assets/Images/medium-1.jpeg" class="small-pic-1" />
+              <img
+                alt="image"
+                src="../Assets/Images/long-1.jpeg"
+                class="small-pic-1"
+              />
             </div>
             <div class="small-font">
               <p class="small-font-1">
@@ -54,7 +58,11 @@
 
           <div class="font-1">
             <div class="small-pic">
-              <img alt="image" src="../Assets/Images/medium-2.jpeg" class="small-pic-1" />
+              <img
+                alt="image"
+                src="../Assets/Images/long-2.jpeg"
+                class="small-pic-1"
+              />
             </div>
             <div class="small-font">
               <p class="small-font-1">
@@ -68,7 +76,7 @@
         </div>
       </div>
 
-        <div class="all_styles">
+         <div class="all_styles">
       <%
       List<Style> styles = new StyleService().getAllStyles();
                 		
@@ -93,8 +101,8 @@
   <!-- all styles here -->
       </div>
     </section>
-    <!-- back button -->
-    
+
+  
 <!-- footer -->
 <footer>
   <div class="footer">
@@ -133,13 +141,9 @@
     </div>
   </div>
 </footer>
+    
 
-    
-     
-    <script src="../Assets/JS/search_br.js"></script>
-    
-   
+
+<script src="../Assets/JS/search_br.js"></script>
   </body>
 </html>
-
-

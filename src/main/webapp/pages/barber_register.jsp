@@ -75,9 +75,7 @@
       <input type="password" id="barber_password" value="Akkam432@" name="barber_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$" 
              title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number." required>
       
-      <!-- Barber Confirm Password -->
-      <label for="confirm_password">Confirm Password:</label>
-      <input type="password" value="Akkam432@" id="confirm_password" name="confirm_password" required>
+      
       
       <!-- Barber Phone Number  -->
       <label for="barber_phone">Barber Phone Number:</label>
@@ -100,6 +98,19 @@
       <label for="barber_about">About Barber:</label>
       <textarea id="barber_about" name="barber_about" value="a person whose occupation is mainly to cut, dress, groom, style and shave men's and boys' hair or beards. " required></textarea>
       
+      
+      <!-- Barber Profile URL -->
+      <label for="profile_url">Sample haircut 1:</label>
+      <input type="url" id="profile_url"  value="https://i.pinimg.com/originals/18/a5/79/18a5792983a99ed184c7a20c35366821.jpg" name="sample_1" required>
+      
+      
+      <!-- Barber Profile URL -->
+      <label for="profile_url">Sample haircut 1:</label>
+      <input type="url" id="profile_url"  value="https://i.pinimg.com/originals/18/a5/79/18a5792983a99ed184c7a20c35366821.jpg" name="sample_2" required>
+      
+      <!-- Barber Profile URL -->
+      <label for="profile_url">Sample haircut 1:</label>
+      <input type="url" id="profile_url"  value="https://i.pinimg.com/originals/18/a5/79/18a5792983a99ed184c7a20c35366821.jpg" name="sample_3" required>
       <!-- Submit Button -->
       <input type="submit" value="Register">
     </form>

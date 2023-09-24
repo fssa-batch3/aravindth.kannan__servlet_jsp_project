@@ -49,16 +49,7 @@
           class="name-box-1" type="url" id="s_photo" />
         </div>
       </div>
-      <div class="email">
-        <label> Salon area</label>
-        <div class="address-box">
-          <input 
-          required
-           name="salonArea"
-          value="The Best Shears in Town."
-          class="name-box-1" type="text" id="s_slogan" />
-        </div>
-      </div>
+      
       <div class="email">
           <label> Salon area</label>
           <br />

@@ -17,37 +17,7 @@
     <link rel="stylesheet" href="../Assets/CSS/universe.css" />
   </head>
   <body>
-    <header>
-		<div class="header">
-			<div>
-				<a href="index.jsp"> <img class="logo_img"
-					src="../images/sharp logo black.png" alt="logo" />
-				</a>
-			</div>
-			<div>
-				<nav class="All-navs">
-					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Hair styles</button>
-						<div class="nav_dropdown-content">
-							<a href="medium_style.jsp">Haircut</a> <a
-								href="fade_style.jsp">Hair straightening</a> <a
-								href="long_style.jsp">Hair coloring</a> <a
-								href="undercut_style.jsp">Facials</a> <a
-								href="short_style.jsp">Shaves</a> <a
-								href="beard_style.jsp">Beard trim</a>
-						</div>
-					</div>
-					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Login</button>
-						<div class="nav_dropdown-content">
-							<a href="customer_login.jsp">Customer</a> <a
-								href="barber_login.jsp">Barber</a>
-						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</header>
+    <jsp:include page="barber_header.jsp"/>
 
     <!-- search bar  start-->
     <div class="search_bar_div">

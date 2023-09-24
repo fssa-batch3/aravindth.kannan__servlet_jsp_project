@@ -8,39 +8,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>medium</title>
-<link rel="stylesheet" href="../Assets/CSS/hair_style.css">
-    <link rel="stylesheet" href="../Assets/CSS/universe.css">
+    <link rel="stylesheet" href="../Assets/CSS/universe.css" />
+    <link rel="stylesheet" href="../Assets/CSS/hair_style.css" />
+    <title>short_style</title>
   </head>
   <body>
+    <!-- header is started -->
+    <jsp:include page="customer_header.jsp"/>
+    <!-- header is ended -->
 
-    <jsp:include page="barber_header.jsp"/>
-
-      <!-- search bar  start-->
+    <!-- search bar  start-->
     <div class="search_bar_div">
       <input placeholder="Search here.." type="text" class="search_bar" id="search_bar_id"/>
     </div>
      <!-- search bar end-->
-   
 
+    <!-- section is started -->
     <div class="Short">
-      <p class="short-1">Haircut</p>
+      <p class="short-1">Shaves</p>
     </div>
     <section>
       <div class="big-div">
         <div class="big-img">
-          <img alt="image" src="../Assets/Images/medium-0.jpeg" class="big-img-1" />
+          <img
+            alt="image"
+            src="../Assets/Images/short haircut big.jpg"
+            class="big-img-1"
+          />
         </div>
         <div class="two-img">
           <div class="font-1">
             <div class="small-pic">
-              <img alt="image" src="../Assets/Images/medium-1.jpeg" class="small-pic-1" />
+              <img
+                alt="image"
+                src="../Assets/Images/short-0.webp"
+                class="small-pic-1"
+              />
             </div>
             <div class="small-font">
               <p class="small-font-1">
@@ -54,7 +62,11 @@
 
           <div class="font-1">
             <div class="small-pic">
-              <img alt="image" src="../Assets/Images/medium-2.jpeg" class="small-pic-1" />
+              <img
+                alt="image"
+                src="../Assets/Images/short-1.jpg"
+                class="small-pic-1"
+              />
             </div>
             <div class="small-font">
               <p class="small-font-1">
@@ -68,7 +80,7 @@
         </div>
       </div>
 
-        <div class="all_styles">
+         <div class="all_styles">
       <%
       List<Style> styles = new StyleService().getAllStyles();
                 		
@@ -93,53 +105,50 @@
   <!-- all styles here -->
       </div>
     </section>
-    <!-- back button -->
-    
-<!-- footer -->
-<footer>
-  <div class="footer">
-    
-      <div class="footicons">
-        <a href="#"
-          ><img
-            class="footround"
-            src="../Assets/Images/Y- facebook.png"
-            alt="What's app"
-        /></a>
-        <a href="#">
-          <img
-            class="footround"
-            src="../Assets/Images/Y- insta.png"
-            alt="face book"
-        /></a>
-        <a href="#">
-          <img
-            class="footround"
-            src="../Assets/Images/Y- twitter.png"
-            alt="instagram"
-        /></a>
-       
-      </div>
-      <br>
-      <div class="footer_firsthalf">
-        <a>Home</a>
-        <a>Services</a>
-        <a>About</a>
-        <a>terms</a>
-        <a>Privacy policy</a>
-    </div>
-    <div class="copy_right_div">
-      <pre>sharp & clean  <img alt="copy right" class="c_round" src="../Assets/Images/C - copyright.png"/>  2023</pre>
-    </div>
-  </div>
-</footer>
 
-    
-     
-    <script src="../Assets/JS/search_br.js"></script>
-    
    
+    <!-- section is ended -->
+
+    <!-- footer is started -->
+    <footer>
+      <div class="footer">
+        
+          <div class="footicons">
+            <a href="#"
+              ><img
+                class="footround"
+                src="../Assets/Images/Y- facebook.png"
+                alt="What's app"
+            /></a>
+            <a href="#">
+              <img
+                class="footround"
+                src="../Assets/Images/Y- insta.png"
+                alt="face book"
+            /></a>
+            <a href="#">
+              <img
+                class="footround"
+                src="../Assets/Images/Y- twitter.png"
+                alt="instagram"
+            /></a>
+           
+          </div>
+          <br>
+          <div class="footer_firsthalf">
+            <a>Home</a>
+            <a>Services</a>
+            <a>About</a>
+            <a>terms</a>
+            <a>Privacy policy</a>
+        </div>
+        <div class="copy_right_div">
+          <pre>sharp & clean  <img alt="copy right" class="c_round" src="../Assets/Images/C - copyright.png"/>  2023</pre>
+        </div>
+      </div>
+    </footer>
+    
+    
+    <script src="../Assets/JS/search_br.js"></script>
   </body>
 </html>
-
-
