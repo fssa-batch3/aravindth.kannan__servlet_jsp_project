@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page
+	import="com.fssa.sharpandclean.service.exception.ServiceException"%>
+<%@ page import="com.fssa.sharpandclean.service.BarberService"%>
+<%@ page import="com.fssa.sharpandclean.model.Barber"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,10 +17,20 @@
   <body>
   
   <%
-	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	String loggedInEmail = (String)session.getAttribute("loggedInEmail");
 	
 	if(loggedInEmail == null) {
 		response.sendRedirect("barber_login.jsp");
+	}
+	
+	BarberService barberService = new BarberService();
+	Barber barber = null;
+
+	try {
+		barber = barberService.getBarberByEmail(loggedInEmail);
+	} catch (ServiceException e) {
+		// Handle the exception appropriately, e.g., display an error message to the user or log it
+		out.println("Error: " + e.getMessage());
 	}
 %>
     <!-- header is started -->
@@ -25,66 +41,66 @@
     <div class="full_content">
       <div class="photo_div">
         <div class="site_name_div">
-          <p class="site_name">SHARP & CLEAN</p>
+          <p class="site_name">Sharp & Clean</p>
 
           <p class="barber_text">Official barber</p>
         </div>
         <div class="profile">
-          <img class="photo" id="b_photo" alt="barber profile photo" />
+          <img src="<%= barber.getBarberProfile() %>" class="photo" id="b_photo" alt="barber profile photo" />
         </div>
 
         <div class="primary_information_div">
           <fieldset class="field_div">
-            <legend class="label">Barber name</legend>
-            <input class="input_two" type="text" id="barber_name" disabled />
+            <legend class="label">Barber Name </legend>
+            <input value="<%= barber.getBarberName() %>" class="input_two" type="text" id="barber_name" disabled />
           </fieldset>
           <fieldset class="field_div">
-            <legend class="label">Phone number</legend>
-            <input class="input_two" type="text" id="phone_number" disabled />
+            <legend class="label">Phone Number  </legend>
+            <input value="<%= barber.getBarberPhone() %>" class="input_two" type="text" id="phone_number" disabled />
           </fieldset>
         </div>
 
         <div class="two_buttons">
           <a class="p_edit" href="./barber_profile_edit.html">Edit profile</a>
-          <button id="delete_barber" class="p_edit">Delete profile</button>
+          <button id="delete_barber" class="p_edit">Logout</button>
         </div>
       </div>
       <!-- left side end -->
 
       <div class="information">
         <div class="right_head">
-          <p>Barber information</p>
+          <p>Barber Information</p>
         </div>
 
         <fieldset class="input_div">
-          <legend class="label_full_details">Experience</legend>
-          <input class="input" type="text" id="experience" disabled />
+          <legend class="label_full_details">Barber Experience </legend>
+          <input value="<%= barber.getBarberExperience() %>" class="input" type="text" id="experience" disabled />
         </fieldset>
         <fieldset class="input_div">
-          <legend class="label_full_details">Slogan</legend>
-          <input class="input" type="text" id="slogan" disabled />
+          <legend class="label_full_details">Barber Email </legend>
+          <input value="<%= barber.getBarberEmail() %>" class="input" type="text" id="slogan" disabled />
         </fieldset>
 
         <fieldset class="input_div_add">
-          <legend class="label_full_details">Address</legend>
-          <input class="input" type="text" id="address" disabled />
+          <legend class="label_full_details">Barber Address </legend>
+          <input value="<%= barber.getBarberAddress() %>" class="input" type="text" id="address" disabled />
         </fieldset>
         <fieldset class="input_div_add">
-          <legend class="label_full_details">About</legend>
-          <input class="input" type="text" id="barber_about_id" disabled />
+          <legend class="label_full_details">About Barber </legend>
+          <input value="<%= barber.getBarberAbout() %>" class="input" type="text" id="barber_about_id" disabled />
         </fieldset>
 
         <!-- your card -->
 
         <div class="card_text_div">
-          <p class="Your_card">Your barber card</p>
+          <p class="Your_card">Your Barber Card</p>
         </div>
 
         <!-- full card details -->
 
         <div class="card">
           <div class="card-header">
-            <h3>Sample haircuts</h3>
+            <h3>Sample Haircuts</h3>
           </div>
 
           <div class="card-content">
@@ -92,7 +108,7 @@
               <img
                 alt="Barber profile"
                 id="card_profile"
-                src="https://source.unsplash.com/0fN7Fxv1eWA"
+                src="<%= barber.getBarberProfile() %>"
               />
             </div>
             <div class="projects">
@@ -100,7 +116,7 @@
                 <img
                   alt="sample haircut"
                   id="card_sample_1"
-                  src="https://source.unsplash.com/Q3NEoed1dzs"
+                  src="<%= barber.getSample_1() %>"
                 />
               </div>
 
@@ -108,7 +124,7 @@
                 <img
                   alt="sample haircut"
                   id="card_sample_2"
-                  src="https://source.unsplash.com/vYRAP3yMa3I"
+                  src="<%= barber.getSample_2() %>"
                 />
               </div>
 
@@ -116,7 +132,7 @@
                 <img
                   alt="sample haircut"
                   id="card_sample_3"
-                  src="https://source.unsplash.com/4uojMEdcwI8"
+                  src="<%= barber.getSample_3() %>"
                 />
               </div>
             </div>
@@ -125,7 +141,7 @@
           <div class="card-footer">
             <div class="profile-group">
               <div class="name">Name</div>
-              <div id="card_b_name" class="job">Web developer</div>
+              <div id="card_b_name" class="job"><%= barber.getBarberName() %></div>
             </div>
             <div class="select">
               <button id="card_details" class="detail">Details</button>
@@ -136,9 +152,9 @@
 
         <!-- card end -->
         <div class="three_buttons">
-          <a href="./barber_card_create_form.html" class="create_card"
+        <!--    <a href="./barber_card_create_form.html" class="create_card"
             >Create card</a
-          >
+          > -->
           <a href="./barber_card_edit.html" class="create_card">Edit card</a>
           <button class="edit_card" id="delete_card">delete card</button>
         </div>

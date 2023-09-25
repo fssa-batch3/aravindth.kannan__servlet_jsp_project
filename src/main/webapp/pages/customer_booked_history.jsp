@@ -38,7 +38,6 @@
          
          <%
          	List<SalonBook> salonBooks = (List<SalonBook>)request.getAttribute("bookList");
-          System.out.println(salonBooks);
             if(salonBooks != null && !salonBooks.isEmpty()){	
          for(SalonBook salonbook : salonBooks){
          		

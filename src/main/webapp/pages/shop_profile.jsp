@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page
+	import="com.fssa.sharpandclean.service.exception.ServiceException"%>
+<%@ page import="com.fssa.sharpandclean.service.SalonService"%>
+<%@ page import="com.fssa.sharpandclean.model.Salon"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,24 +15,44 @@
     <title>shop profile</title>
   </head>
   <body>
+  
+   
+  <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("barber_login.jsp");
+	}
+	
+	SalonService salonService = new SalonService();
+	Salon salon =  null;
+
+	try {
+		salon = salonService.getSalonBySalonEmail(loggedInEmail);
+		System.out.println(salon);
+	} catch (ServiceException e) {
+		// Handle the exception appropriately, e.g., display an error message to the user or log it
+		out.println("Error: " + e.getMessage());
+	}
+%>
     <!-- header is started -->
    <jsp:include page="barber_header.jsp"></jsp:include>
     <!-- header is ended -->
 
     <!-- section is started -->
     <div class="topic_div">
-      <h1 class="topic">Shop profile</h1>
+      <h1 class="topic">Salon profile</h1>
     </div>
 
     <div class="full_content">
       <!-- card side start -->
       <div class="card_and_profile_div">
         <div class="profile">
-          <img class="photo" id="photo" alt="shop profile photo" />
+          <img src="<%= salon.getSalonURL() %>" class="photo" alt="shop profile photo" />
           <div class="right_side">
-            <p class="text">Scissor Masters</p>
+            <p class="text">Sharp & Clean</p>
             <br />
-            <p class="text">Official shops</p>
+            <p class="text">Official Salon</p>
           </div>
         </div>
 
@@ -41,11 +67,11 @@
               id="card_profile"
               alt="shop image"
               class="img-responsive"
-              src="https://images.unsplash.com/photo-1454678904372-2ca94103eca4?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925"
+              src="<%= salon.getSalonURL() %>"
             />
             <div class="name_div">
               <h2 id="card_b_name" class="hvr-underline-from-center">
-                Prakash
+                <%= salon.getSalonName() %>
               </h2>
             </div>
 
@@ -57,35 +83,35 @@
                 id="card_sample_1"
                 alt="haircutname"
                 class="profile-pic"
-                src="https://pbs.twimg.com/profile_images/910579937089859584/rbsL-1ze_400x400.jpg"
+                src="<%= salon.getSalonSample1() %>"
               />
 
               <img
                 id="card_sample_2"
                 alt="haircutname"
                 class="profile-pic"
-                src="https://pbs.twimg.com/profile_images/910579937089859584/rbsL-1ze_400x400.jpg"
+                src="<%= salon.getSalonSample2() %>"
               />
 
               <img
                 id="card_sample_3"
                 alt="haircutname"
                 class="profile-pic"
-                src="https://pbs.twimg.com/profile_images/910579937089859584/rbsL-1ze_400x400.jpg"
+                src="<%= salon.getSalonSample3() %>"
               />
             </div>
 
-            <div class="two_btn_div">
+         <!--     <div class="two_btn_div">
               <a class="select_btn">Details</a>
               <a class="select_btn">Select</a>
-            </div>
+            </div> -->
           </div>
         </div>
 
         <!-- card end -->
 
         <div class="three_buttons">
-          <a href="./shop_card_create.html" class="create_card">Create card</a>
+         <!--   <a href="./shop_card_create.html" class="create_card">Create card</a> -->
           <a href="./shop_card_edit.html" class="create_card">Edit card</a>
           <button class="edit_card" id="delete_shop_card">delete card</button>
         </div>
@@ -96,38 +122,38 @@
       <div class="about_shop">
         <div class="information">
           <div class="input_div">
-            <label class="label">Shop Name: </label>
+            <label class="label">Salon Name: <%= salon.getSalonName() %></label>
             <br />
             <input class="input" type="text" id="shop_name" disabled />
           </div>
 
           <div class="input_div">
-            <label class="label">Shop experience: </label>
+            <label class="label">Salon experience: <%= salon.getSalonExperience() %></label>
             <br />
             <input class="input" type="text" id="shop_experience" disabled />
           </div>
           <div class="input_div">
-            <label class="label"> Shop slogan: </label>
+            <label class="label"> Salon Area: <%= salon.getSalonArea() %></label>
             <br />
             <input class="input" type="text" id="shop_slogan" disabled />
           </div>
           <div class="input_div">
-            <label class="label"> Haircut price detail: </label>
+            <label class="label"> Salon Experience :<%= salon.getSalonExperience() %> </label>
             <br />
             <input class="input" type="text" id="shop_haircut_price" disabled />
           </div>
           <div class="input_div">
-            <label class="label"> Shop phone number: </label>
+            <label class="label"> Salon phone number: <%= salon.getSalonPhone() %></label>
             <br />
             <input class="input" type="text" id="shop_phone_number" disabled />
           </div>
           <div class="big_input_div">
-            <label class="label"> Shop address: </label>
+            <label class="label"> Shop address: <%= salon.getSalonAddress() %></label>
             <br />
             <input class="big_input" type="text" id="shop_address" disabled />
           </div>
           <div class="about_div">
-            <label class="label">About shop: </label>
+            <label class="label">About shop: <%= salon.getSalonAbout() %></label>
             <br />
             <input class="big_input" type="text" id="shop_about_id" disabled />
           </div>

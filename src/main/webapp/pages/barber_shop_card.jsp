@@ -105,7 +105,7 @@
           pattern="[7-9]{1}[0-9]{9}" 
        title="Phone number with 7-9 and remaing 9 digit with 0-9"
           required
-          class="name-box-1" type="number" id="s_phone" />
+          class="name-box-1" type="tel" id="s_phone" />
         </div>
       </div>
       <div class="experience">

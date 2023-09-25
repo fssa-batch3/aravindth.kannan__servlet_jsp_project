@@ -69,10 +69,10 @@ if (loggedInEmail == null) {
               </div>
             </div>
             
-            <a class="nav" href="barber_shop_card.jsp">Register shop </a>
-            <a class="nav" href="barber_booking_list.jsp">booking list</a>
-            <a class="nav" href="shop_profile.jsp">Shop profile</a>
-            <a class="nav" href="barber_profile.jsp" ><img
+            <a class="nav" href="barber_shop_card.jsp">Register Salon </a>
+            <a class="nav" href="GetBookingBySalonEmailServlet">booking List</a>
+            <a class="nav" href="SalonProfileServlet">Salon profile</a>
+            <a class="nav" href="BarberProfileServlet" ><img
                 src="../Assets/Images/profile-2.png"
                 alt="profile"
                 height="30px"

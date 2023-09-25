@@ -1,3 +1,11 @@
+<%@ page import="com.fssa.sharpandclean.service.SalonService"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+   
+<%@ page import="java.util.List"%>
+<%@ page import="com.fssa.sharpandclean.model.SalonBook"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +17,14 @@
     <title>barber booking list</title>
   </head>
   <body>
+  
+      <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("barber_login.jsp");
+	}
+%>
     <!-- header is started -->
     <jsp:include page="barber_header.jsp" />
     <!-- header is ended -->
@@ -17,19 +33,37 @@
     <div class="both_list">
       <!-- shop booked list section is started -->
       <section class="shop_list">
-        <h2>Shop booked list</h2>
-        <!-- <div class="booked_div">
+      
+        <h2>Salon booked list</h2>
+        <%
+         	List<SalonBook> salonBooked = (List<SalonBook>)request.getAttribute("salonBookList");
+            if(salonBooked != null && !salonBooked.isEmpty()){	
+         for(SalonBook salonBooks : salonBooked){
+         		
+         	
+         %>
+        
+         <div class="booked_div">
           <h2>Booked Details</h2>
-          <p class="shop_text" id="shop_name">sharp&clean</p>
+          <p  id="shop_name">Customer Name : <%= salonBooks.getBookUserName() %></p>
           <ul>
-            <li class="detail" id="customer_name"></li>
-            <li class="detail" id="date"></li>
-            <li class="detail" id="time"></li>
-            <li class="detail" id="hairstyle"></li>
-            <li class="detail" id="cus_phone"></li>
+            <li class="detail" id="customer_name">Customer Phone : <%= salonBooks.getBookUserPhone() %></li>
+            <li class="detail" id="date">Booked Service : <%= salonBooks.getBookService() %></li>
+            <li class="detail" id="time">Booked Date : <%= salonBooks.getBookDate() %></li>
+            <li class="detail" id="hairstyle">Booked Schedule: <%= salonBooks.getBookTime() %></li>
+            <li class="detail" id="cus_phone">Booked OTP : <%= salonBooks.getSalonOTP() %></li>
           </ul>
-          <button id="done_button" class="done_btn">Done</button>
-        </div> -->
+          
+        </div> 
+        
+        <%
+         }
+            }else {
+        %>
+        <p>No Salon booked history available</p>
+        <%
+            }
+        %>
       </section>
       <!--  barber booked list section is started -->
       <section class="barber_list">

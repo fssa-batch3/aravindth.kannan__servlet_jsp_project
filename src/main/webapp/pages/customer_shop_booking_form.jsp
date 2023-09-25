@@ -98,17 +98,17 @@
         <div class="phone">
           <p class="phone-1">Time Schedule</p>
           <select name="bookTime" id="shop_time" class="time_div">
-            <option>08:00Am - 09:00Am</option>
+            <option>08:00AM - 09:00AM</option>
 
-            <option>10:00Am - 11:00Am</option>
+            <option>10:00AM - 11:00AM</option>
 
-            <option>12:00Pm - 01:00Pm</option>
+            <option>12:00PM - 01:00PM</option>
 
-            <option>02:00Pm - 03:00Pm</option>
+            <option>02:00PM - 03:00PM</option>
 
-            <option>04:00Pm - 05:00Pm</option>
+            <option>04:00PM - 05:00PM</option>
 
-            <option>06:00Pm - 07:00Pm</option>
+            <option>06:00PM - 07:00PM</option>
           </select>
           <br />
           <button type="submit" id="next_btn" class="book" >Book Appointment</button>
