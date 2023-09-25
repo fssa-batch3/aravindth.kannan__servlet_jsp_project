@@ -62,7 +62,8 @@
         </div>
 
         <div class="two_buttons">
-          <a class="p_edit" href="./barber_profile_edit.html">Edit Profile</a>
+        <a class="p_edit" href="./barber_profile_edit.html">Delete </a>
+          <a class="p_edit" href="./barber_profile_edit.html">Edit </a>
           <a href="BarberLogoutServlet" id="delete_barber" class="p_edit">Logout</a>
         </div>
       </div>
@@ -145,85 +146,15 @@
               <div id="card_b_name" class="job"><%= barber.getBarberName() %></div>
             </div>
             <div class="select">
-              <button id="card_details" class="detail">Details</button>
-              <a href="./booking-barber.html" class="select-button">Select</a>
+              <p  class="select-button">Details</p>
+              <p  class="select-button">Select</p>
             </div>
           </div>
         </div>
 
-        <!-- card end -->
-        <div class="three_buttons">
-          <a href="./barber_card_edit.html" class="create_card">Edit card</a>
-          <button class="edit_card" id="delete_card">delete card</button>
-        </div>
+        
       </div>
     </div>
-
-    <!-- add more haircut designs -->
-
-    <div class="all_haircut_designs">
-      <div class="form_div">
-        <p>Add more haircuts</p>
-        <form id="add_form" method="post" action="CreateStyleServlet" class="add_style_form">
-          <div class="small_form_div">
-            <label class="label">Haircut name</label>
-
-            <br />
-            <input
-            name="haircutName"
-            value="fire coloring"
-              required
-              pattern="[A-Z a-z]{1,32}"
-              title="Make sure that name should space"
-              id="style_name"
-              class="name-box-1"
-              type="text"
-              autocomplete="name"
-            />
-          </div>
-          <div class="small_form_div">
-            <label class="label"> Select service</label>
-            <br />
-            <select name="haircutType" id="type_id" class="name-box-1" required>
-              <option>Haircut</option>
-              <option>Hair coloring</option>
-              <option>Hair straitning</option>
-              <option>Facials</option>
-              <option>Shaves</option>
-              <option>Beard trim</option>
-            </select>
-          </div>
-
-          <div class="small_form_div">
-            <label class="label">Description</label>
-
-            <br />
-            <input
-            name="haircutAbout"
-            value="This type coloring is going trending now. In this service we use fire to coloring your hair."
-              required
-              id="style_para"
-              class="name-box-1"
-              type="text"
-              autocomplete="name"
-            />
-          </div>
-
-          <div class="small_form_div">
-            <label class="label">Haircut photo</label>
-            <br />
-            <input required name="haircutURL" class="name-box-1" type="url" id="design_photo" />
-          </div>
-          <div class="three_buttons">
-            <button class="submit_1">Submit</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="haircuts"></div>
-    </div>
-    
-    
 
     <!-- section is ended -->
 

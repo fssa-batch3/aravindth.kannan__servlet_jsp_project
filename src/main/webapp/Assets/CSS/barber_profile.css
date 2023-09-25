@@ -103,10 +103,10 @@ body {
 }
 
 .p_edit {
-  width: 40%;
+  width: 30%;
   text-decoration: none;
-  height: 4rem;
-  font-size: 1.2em;
+  height: 3rem;
+  font-size: 1em;
   font-weight: bold;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
