@@ -19,6 +19,13 @@
     <link rel="stylesheet" href="../Assets/CSS/universe.css">
   </head>
   <body>
+   <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("customer_login.jsp");
+	}
+%>
 
     <jsp:include page="customer_header.jsp"/>
 

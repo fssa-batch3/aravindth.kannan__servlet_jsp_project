@@ -8,79 +8,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fade</title>
-    <link rel="stylesheet" href="../Assets/CSS/hair_style.css" />
-    <link rel="stylesheet" href="../Assets/CSS/universe.css" />
+    <title>medium</title>
+<link rel="stylesheet" href="../Assets/CSS/hair_style.css">
+    <link rel="stylesheet" href="../Assets/CSS/universe.css">
   </head>
   <body>
   
-  
-    
+   <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("barber_login.jsp");
+	}
+%>
 
-     <header>
-		<div class="header">
-			<div>
-				<a href="index.jsp"> <img class="logo_img"
-					src="../images/sharp logo black.png" alt="logo" />
-				</a>
-			</div>
-			<div>
-				<nav class="All-navs">
-					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Hair styles</button>
-						<div class="nav_dropdown-content">
-							<a href="medium_style.jsp">Haircut</a> <a
-								href="fade_style.jsp">Hair straightening</a> <a
-								href="long_style.jsp">Hair coloring</a> <a
-								href="undercut_style.jsp">Facials</a> <a
-								href="short_style.jsp">Shaves</a> <a
-								href="beard_style.jsp">Beard trim</a>
-						</div>
-					</div>
-					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Login</button>
-						<div class="nav_dropdown-content">
-							<a href="customer_login.jsp">Customer</a> <a
-								href="barber_login.jsp">Barber</a>
-						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</header>
-    <!-- search bar  start-->
+    <jsp:include page="barber_header.jsp"/>
+
+      <!-- search bar  start-->
     <div class="search_bar_div">
       <input placeholder="Search here.." type="text" class="search_bar" id="search_bar_id"/>
     </div>
      <!-- search bar end-->
-    
- 
+   
 
     <div class="Short">
-      <p class="short-1">Hair straightening</p>
+      <p class="short-1">Haircut</p>
     </div>
     <section>
       <div class="big-div">
         <div class="big-img">
-          <img
-            alt="image"
-            src="../Assets/Images/fade-0.jpeg"
-            class="big-img-1"
-          />
+          <img alt="image" src="../Assets/Images/medium-0.jpeg" class="big-img-1" />
         </div>
         <div class="two-img">
           <div class="font-1">
             <div class="small-pic">
-              <img
-                alt="image"
-                src="../Assets/Images/fade-1.jpeg"
-                class="small-pic-1"
-              />
+              <img alt="image" src="../Assets/Images/medium-1.jpeg" class="small-pic-1" />
             </div>
             <div class="small-font">
               <p class="small-font-1">
@@ -94,11 +62,7 @@
 
           <div class="font-1">
             <div class="small-pic">
-              <img
-                alt="image"
-                src="../Assets/Images/fade-2.jpeg"
-                class="small-pic-1"
-              />
+              <img alt="image" src="../Assets/Images/medium-2.jpeg" class="small-pic-1" />
             </div>
             <div class="small-font">
               <p class="small-font-1">
@@ -112,7 +76,7 @@
         </div>
       </div>
 
-         <div class="all_styles">
+        <div class="all_styles">
       <%
       List<Style> styles = new StyleService().getAllStyles();
                 		
@@ -137,7 +101,7 @@
   <!-- all styles here -->
       </div>
     </section>
-
+    <!-- back button -->
     
 <!-- footer -->
 <footer>
@@ -179,9 +143,11 @@
 </footer>
 
     
-
+     
+    <script src="../Assets/JS/search_br.js"></script>
+    
    
-  <script src="../Assets/JS/search_br.js"></script>
-
   </body>
 </html>
+
+

@@ -1,8 +1,6 @@
 <%@page import="com.fssa.sharpandclean.service.StyleService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-   
 <%@ page import="java.util.List"%>
 <%@ page import="com.fssa.sharpandclean.model.Style"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -22,6 +20,13 @@
     />
   </head>
   <body>
+   <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("customer_login.jsp");
+	}
+%>
   
     <jsp:include page="customer_header.jsp"/>
     <!-- search bar  start-->

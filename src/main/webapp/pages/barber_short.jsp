@@ -13,63 +13,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fade</title>
-    <link rel="stylesheet" href="../Assets/CSS/hair_style.css" />
     <link rel="stylesheet" href="../Assets/CSS/universe.css" />
+    <link rel="stylesheet" href="../Assets/CSS/hair_style.css" />
+    <title>short_style</title>
   </head>
   <body>
   
-  
-    
+    <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("barber_login.jsp");
+	}
+%>
+    <!-- header is started -->
+    <jsp:include page="barber_header.jsp"/>
+    <!-- header is ended -->
 
-     <header>
-		<div class="header">
-			<div>
-				<a href="index.jsp"> <img class="logo_img"
-					src="../images/sharp logo black.png" alt="logo" />
-				</a>
-			</div>
-			<div>
-				<nav class="All-navs">
-					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Hair styles</button>
-						<div class="nav_dropdown-content">
-							<a href="medium_style.jsp">Haircut</a> <a
-								href="fade_style.jsp">Hair straightening</a> <a
-								href="long_style.jsp">Hair coloring</a> <a
-								href="undercut_style.jsp">Facials</a> <a
-								href="short_style.jsp">Shaves</a> <a
-								href="beard_style.jsp">Beard trim</a>
-						</div>
-					</div>
-					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Login</button>
-						<div class="nav_dropdown-content">
-							<a href="customer_login.jsp">Customer</a> <a
-								href="barber_login.jsp">Barber</a>
-						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</header>
     <!-- search bar  start-->
     <div class="search_bar_div">
       <input placeholder="Search here.." type="text" class="search_bar" id="search_bar_id"/>
     </div>
      <!-- search bar end-->
-    
- 
 
+    <!-- section is started -->
     <div class="Short">
-      <p class="short-1">Hair straightening</p>
+      <p class="short-1">Shaves</p>
     </div>
     <section>
       <div class="big-div">
         <div class="big-img">
           <img
             alt="image"
-            src="../Assets/Images/fade-0.jpeg"
+            src="../Assets/Images/short haircut big.jpg"
             class="big-img-1"
           />
         </div>
@@ -78,7 +54,7 @@
             <div class="small-pic">
               <img
                 alt="image"
-                src="../Assets/Images/fade-1.jpeg"
+                src="../Assets/Images/short-0.webp"
                 class="small-pic-1"
               />
             </div>
@@ -96,7 +72,7 @@
             <div class="small-pic">
               <img
                 alt="image"
-                src="../Assets/Images/fade-2.jpeg"
+                src="../Assets/Images/short-1.jpg"
                 class="small-pic-1"
               />
             </div>
@@ -138,50 +114,49 @@
       </div>
     </section>
 
-    
-<!-- footer -->
-<footer>
-  <div class="footer">
-    
-      <div class="footicons">
-        <a href="#"
-          ><img
-            class="footround"
-            src="../Assets/Images/Y- facebook.png"
-            alt="What's app"
-        /></a>
-        <a href="#">
-          <img
-            class="footround"
-            src="../Assets/Images/Y- insta.png"
-            alt="face book"
-        /></a>
-        <a href="#">
-          <img
-            class="footround"
-            src="../Assets/Images/Y- twitter.png"
-            alt="instagram"
-        /></a>
-       
-      </div>
-      <br>
-      <div class="footer_firsthalf">
-        <a>Home</a>
-        <a>Services</a>
-        <a>About</a>
-        <a>terms</a>
-        <a>Privacy policy</a>
-    </div>
-    <div class="copy_right_div">
-      <pre>sharp & clean  <img alt="copy right" class="c_round" src="../Assets/Images/C - copyright.png"/>  2023</pre>
-    </div>
-  </div>
-</footer>
-
-    
-
    
-  <script src="../Assets/JS/search_br.js"></script>
+    <!-- section is ended -->
 
+    <!-- footer is started -->
+    <footer>
+      <div class="footer">
+        
+          <div class="footicons">
+            <a href="#"
+              ><img
+                class="footround"
+                src="../Assets/Images/Y- facebook.png"
+                alt="What's app"
+            /></a>
+            <a href="#">
+              <img
+                class="footround"
+                src="../Assets/Images/Y- insta.png"
+                alt="face book"
+            /></a>
+            <a href="#">
+              <img
+                class="footround"
+                src="../Assets/Images/Y- twitter.png"
+                alt="instagram"
+            /></a>
+           
+          </div>
+          <br>
+          <div class="footer_firsthalf">
+            <a>Home</a>
+            <a>Services</a>
+            <a>About</a>
+            <a>terms</a>
+            <a>Privacy policy</a>
+        </div>
+        <div class="copy_right_div">
+          <pre>sharp & clean  <img alt="copy right" class="c_round" src="../Assets/Images/C - copyright.png"/>  2023</pre>
+        </div>
+      </div>
+    </footer>
+    
+    
+    <script src="../Assets/JS/search_br.js"></script>
   </body>
 </html>

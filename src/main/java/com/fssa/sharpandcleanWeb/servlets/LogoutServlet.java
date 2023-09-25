@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession; 
 
-/**
- * Servlet implementation class LogoutServlet
- */
 @WebServlet("/pages/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,10 +29,12 @@ public class LogoutServlet extends HttpServlet {
 		}
 		else {
 			System.out.println("No Session Exists");
+			System.out.println("session invalid in the user page you want login again");
+			response.sendRedirect("customer_login.jsp");
 		}
 		
 		// Redirecting to login page since we have logged out
-		response.sendRedirect("customer_login.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 

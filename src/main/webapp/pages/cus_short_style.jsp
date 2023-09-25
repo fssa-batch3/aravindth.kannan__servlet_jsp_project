@@ -18,6 +18,13 @@
     <title>short_style</title>
   </head>
   <body>
+   <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("customer_login.jsp");
+	}
+%>
     <!-- header is started -->
     <jsp:include page="customer_header.jsp"/>
     <!-- header is ended -->

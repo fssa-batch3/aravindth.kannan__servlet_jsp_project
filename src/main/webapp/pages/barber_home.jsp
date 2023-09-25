@@ -10,14 +10,17 @@
     <link rel="stylesheet" href="../Assets/CSS/contact_us.css">
     <title>barber home</title>
 
-    <!-- <script type="text/javascript">
-      (function () {
-          emailjs.init("xJczW25BwYvEu6S51");
-      })();
-      </script>
-    <script src="https://smtpjs.com/v3/smtp.js" integrity=""></script> -->
+   
   </head>
   <body>
+  
+    <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("barber_login.jsp");
+	}
+%>
     <!-- header is started -->
     <jsp:include page="barber_header.jsp"/>
     
