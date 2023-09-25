@@ -19,15 +19,13 @@ import com.fssa.sharpandclean.service.exception.StyleException;
 public class CreateStyleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
+ 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		  HttpSession session = request.getSession();
-		    
-		    String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+		
 		String haircutName = request.getParameter("haircutName");
-		String haircutBarbersEmail = loggedInEmail;
+		String haircutBarbersEmail = request.getParameter("haircut_email");
 		String hairCutType = request.getParameter("haircutType");
 		String haircutAbout = request.getParameter("haircutAbout");
 		String haircutURL = request.getParameter("haircutURL");
@@ -37,19 +35,16 @@ public class CreateStyleServlet extends HttpServlet {
 		StyleService styleService = new StyleService();
 		Style styles = new Style(haircutName, haircutBarbersEmail, hairCutType, haircutAbout,
 				haircutURL);
-		System.out.println(styles);
+
 		try {
-			if (styleService.addStyle(styles)) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("barber_home.jsp");
-				dispatcher.forward(request, response);
-			} else {
-				out.println("Style adding Failed");
-			}
+			styleService.addStyle(styles);
+				response.sendRedirect("shop_profile.jsp");
+			
 
 		} catch (StyleException e) {
 			String msg = e.getMessage();
 			out.println(msg);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("create_style.jsp?error="+msg);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/shop_profile.jsp?error="+msg);
 			dispatcher.forward(request, response);
 		}
 	}

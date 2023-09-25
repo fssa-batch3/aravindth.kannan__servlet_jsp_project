@@ -16,6 +16,7 @@
   </head>
   <body>
   
+  
    
   <%
 	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
@@ -29,9 +30,7 @@
 
 	try {
 		salon = salonService.getSalonBySalonEmail(loggedInEmail);
-		if(salon == null){
-			response.sendRedirect("barber_shop_card.jsp");
-		}
+		
 	} catch (ServiceException e) {
 		// Handle the exception appropriately, e.g., display an error message to the user or log it
 		out.println("Error: " + e.getMessage());
@@ -168,17 +167,27 @@
     </div>
 
     <!-- add more haircut designs -->
+    
+    <% String errMsg = request.getParameter("error");
+    if(errMsg!=null){
+    	%>
+      	<p>Error In create style: <%=errMsg%> </p>
+    	<%
+    }
+    %>
 
     <div class="all_haircut_designs">
       <div class="form_div">
-        <p>Add more haircuts</p>
-        <form id="add_form_1" class="add_style_form">
+        <p>Add Haircuts</p>
+        <form id="add_form_1" class="add_style_form" action="CreateStyleServlet" method="post">
+        <input type="hidden" name="haircut_email" value="<%= loggedInEmail%>"/>
           <div class="small_form_div">
-            <label class="label">Haircut name</label>
+            <label class="label">Haircut Name</label>
 
             <br />
             <input
-              value="oil facial"
+            name="haircutName"
+              value="Oil facial"
               required
               pattern="[A-Z a-z]{1,32}"
               title="Make sure that name should space"
@@ -192,7 +201,7 @@
           <div class="small_form_div">
             <label class="label"> Select service</label>
             <br />
-            <select name="type" id="type_id" class="name-box-1" required>
+            <select name="haircutType"  id="type_id" class="name-box-1" required>
               <option>Haircut</option>
               <option>Hair coloring</option>
               <option>Hair straightening</option>
@@ -207,6 +216,7 @@
 
             <br />
             <input
+            name="haircutAbout"
               value="In this service we use oil to wash your face and we give oil facial. after this facial your face look very soft."
               required
               id="style_para"
@@ -219,7 +229,7 @@
           <div class="small_form_div">
             <label class="label">Haircut photo</label>
             <br />
-            <input required class="name-box-1" type="url" id="design_photo" />
+            <input name="haircutURL" required class="name-box-1" type="url" id="design_photo" />
           </div>
           <div class="three_buttons">
             <button class="submit_1">Submit</button>
