@@ -27,7 +27,7 @@
         <label>Salon name</label>
         <div class="name-box">
           <input
-          value="mahaan"
+          
           required
           name="salonName"
           pattern="[A-Za-z0-9]+"

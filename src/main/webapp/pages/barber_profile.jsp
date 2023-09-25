@@ -37,6 +37,7 @@
     <jsp:include page="barber_header.jsp" />
     <!-- header is ended -->
 
+	
     <!-- section is started -->
     <div class="full_content">
       <div class="photo_div">
@@ -61,8 +62,8 @@
         </div>
 
         <div class="two_buttons">
-          <a class="p_edit" href="./barber_profile_edit.html">Edit profile</a>
-          <button id="delete_barber" class="p_edit">Logout</button>
+          <a class="p_edit" href="./barber_profile_edit.html">Edit Profile</a>
+          <a href="BarberLogoutServlet" id="delete_barber" class="p_edit">Logout</a>
         </div>
       </div>
       <!-- left side end -->
@@ -152,9 +153,6 @@
 
         <!-- card end -->
         <div class="three_buttons">
-        <!--    <a href="./barber_card_create_form.html" class="create_card"
-            >Create card</a
-          > -->
           <a href="./barber_card_edit.html" class="create_card">Edit card</a>
           <button class="edit_card" id="delete_card">delete card</button>
         </div>
@@ -224,6 +222,8 @@
 
       <div class="haircuts"></div>
     </div>
+    
+    
 
     <!-- section is ended -->
 
@@ -267,205 +267,6 @@
 
     <!-- Java Script -->
 
-    <script>
-      // get data from both storage of login & register
-
-      const thisBarber = JSON.parse(localStorage.getItem("single_barber"));
-      const barberProfileArray = JSON.parse(
-        localStorage.getItem("barber_profile")
-      );
-      // get object from local storage by email
-
-      let oneBarber = barberProfileArray.find(function (event) {
-        let oneBarberEmail = event["barber_email"];
-        if (thisBarber == oneBarberEmail) {
-          return true;
-        }
-      });
-
-      const barberProfile = document
-        .getElementById("b_photo")
-        .setAttribute("src", oneBarber["barber_photo"]);
-      const barberName = (document.getElementById("barber_name").value =
-        oneBarber["barbername"]);
-
-      const barberExperience = (document.getElementById("experience").value =
-        oneBarber["barber_experience"]);
-      const barberSlogan = (document.getElementById("slogan").value =
-        oneBarber["barber_slogan"]);
-      const barberPhone = (document.getElementById("phone_number").value =
-        oneBarber["barber_phone"]);
-      const barberAddress = (document.getElementById("address").value =
-        oneBarber["barber_address"]);
-      const barberAbout = (document.getElementById("barber_about_id").value =
-        oneBarber["barber_about"]);
-
-      // delete  profile function
-
-      let deleteOneBarber = document.getElementById("delete_barber");
-
-      deleteOneBarber.addEventListener("click", function (event) {
-        event.preventDefault();
-        let index = barberProfileArray.indexOf(oneBarber);
-        // give a confirm alert
-        let msg = confirm("Are you sure! you want to delete this account");
-        if (msg !== true) {
-          return;
-        } else {
-          barberProfileArray.splice(index, 1);
-          localStorage.setItem(
-            "barber_profile",
-            JSON.stringify(barberProfileArray)
-          );
-          window.location.href = "./barber_home.html";
-        }
-      });
-
-      // card java script (or) function
-      const barberCardInfo = JSON.parse(localStorage.getItem("barber_card"));
-      // store a email for verify!
-      let barber_email = oneBarber["barber_email"];
-      let barberCard = barberCardInfo.find(function (event) {
-        let one_barber_card = event["barber_card_email"];
-        if (barber_email == one_barber_card) {
-          return true;
-        }
-      });
-
-      //  set the value of that card for barber profile
-      let cardbarberProfile = document
-        .getElementById("card_profile")
-        .setAttribute("src", barberCard["barber_photo"]);
-      let cardbarberName = (document.getElementById("card_b_name").innerHTML =
-        barberCard["barbername"]);
-      let cardbarberSample_1 = document
-        .getElementById("card_sample_1")
-        .setAttribute("src", barberCard["barber_sample"]);
-      let cardbarberSample_2 = document
-        .getElementById("card_sample_2")
-        .setAttribute("src", barberCard["barber_sample_1"]);
-      let cardbarberSample_3 = document
-        .getElementById("card_sample_3")
-        .setAttribute("src", barberCard["barber_sample_2"]);
-
-      //  delete card function
-      let deleteOneCard = document.getElementById("delete_card");
-
-      deleteOneCard.addEventListener("click", function (event) {
-        event.preventDefault();
-        let index = barberCardInfo.indexOf(barberCard);
-        // give a confirm alert
-        let msg = confirm("Are you sure! you want to delete this account");
-        if (msg !== true) {
-          return;
-        } else {
-          barberCardInfo.splice(index, 1);
-          localStorage.setItem("barber_card", JSON.stringify(barberCardInfo));
-          window.location.href = "./barber_profile.html";
-        }
-      });
-
-      // get data from add more hairstyles
-
-      let checker = false;
-      const addDesign = document.getElementById("add_form");
-      addDesign.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        let new_hair = [];
-        if (localStorage.getItem("newhaircuts") != null) {
-          new_hair = JSON.parse(localStorage.getItem("newhaircuts"));
-        }
-
-        const hairName = document.getElementById("style_name").value.trim();
-        const hairType = document.getElementById("type_id").value.trim();
-        const hairDescription = document
-          .getElementById("style_para")
-          .value.trim();
-        const hairCutPhoto = document
-          .getElementById("design_photo")
-          .value.trim();
-        const haircutId = Date.now();
-
-        let hair_cut_data = {
-          haircut_id: haircutId,
-          haircutname: hairName,
-          barber_hair_type: hairType,
-          // this email is profile email
-          haircut_email: thisBarber,
-          haircut_para: hairDescription,
-          haircutImage: hairCutPhoto,
-        };
-
-        new_hair.push(hair_cut_data);
-        const new_Array = JSON.stringify(new_hair);
-        localStorage.setItem("newhaircuts", new_Array);
-        alert("Successfully new hair style added");
-        window.location.href = "./barber_profile.html";
-      });
-
-      // add haircuts Java script
-
-      const oneBarberHaircuts = JSON.parse(localStorage.getItem("newhaircuts"));
-
-      let one_email_haircuts_array = oneBarberHaircuts.filter(
-        F => F.haircut_email == thisBarber
-      );
-
-      console.log(one_email_haircuts_array);
-
-      for (let i = 0; i < one_email_haircuts_array.length; i++) {
-        let big_div = document.createElement("div");
-        big_div.setAttribute("class", "haircut_card");
-        document.querySelector(".haircuts").append(big_div);
-
-        let image = document.createElement("img");
-        image.setAttribute("class", "haircut_card_img");
-        image.setAttribute("src", one_email_haircuts_array[i]["haircutImage"]);
-        image.setAttribute("alt", one_email_haircuts_array[i]["haircutname"]);
-        image.setAttribute("alt", "image");
-        big_div.append(image);
-
-        let content_div = document.createElement("div");
-        content_div.setAttribute("class", "haircut_card-content");
-        big_div.append(content_div);
-
-        let name = document.createElement("h2");
-        name.setAttribute("class", "haircut_card-title");
-        name.innerText = one_email_haircuts_array[i]["haircutname"];
-        content_div.append(name);
-
-        let text = document.createElement("p");
-        text.setAttribute("class", "haircut_card-text");
-        text.innerText = one_email_haircuts_array[i]["haircut_para"];
-        content_div.append(text);
-
-        let delete_haircut = document.createElement("button");
-        delete_haircut.setAttribute("class", "haircut_delete");
-        delete_haircut.innerText = "Delete";
-        delete_haircut.setAttribute(
-          "onclick",
-          "deleteCard(" + one_email_haircuts_array[i]["haircut_id"] + ")"
-        );
-        content_div.append(delete_haircut);
-      }
-
-      // delete haircut function
-      function deleteCard(id) {
-        let arr = oneBarberHaircuts;
-        let card = arr.find(e => {
-          if (id == e["haircut_id"]) {
-            return true;
-          }
-        });
-        let con = confirm("Are you sure want to delete");
-        if (con == true) {
-          let index = arr.indexOf(card);
-          arr.splice(index, 1);
-          localStorage.setItem("newhaircuts", JSON.stringify(arr));
-          alert("Successfully hair type deleted")
-        }
-      }
-    </script>
+    
   </body>
 </html>

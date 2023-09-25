@@ -39,7 +39,6 @@ public class SalonProfileServlet extends HttpServlet {
 			}
 			// Set salon data as an attribute to be used in the JSP
 	        request.setAttribute("salonProfile", salon);
-	        System.out.println(salon);
 	        
 	     // Forward the request to the salon details JSP
 	        request.getRequestDispatcher("/pages/shop_profile.jsp").forward(request, response);

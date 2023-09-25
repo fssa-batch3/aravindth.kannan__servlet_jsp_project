@@ -1,22 +1,20 @@
 package com.fssa.sharpandcleanWeb.servlets;
 
-
-
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession; 
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/pages/LogoutServlet")
-public class LogoutServlet extends HttpServlet {
+
+@WebServlet("/pages/BarberLogoutServlet")
+public class BarberLogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+       
+  
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 
 		if (session != null) {
@@ -25,19 +23,20 @@ public class LogoutServlet extends HttpServlet {
 
 			// invalidate removes all the session attributes
 			session.invalidate();
+			
 		}
 		else {
 			System.out.println("No Session Exists");
 			System.out.println("session invalid in the user page you want login again");
-			response.sendRedirect("customer_login.jsp");
+			response.sendRedirect("barber_login.jsp");
 		}
 		
 		// Redirecting to login page since we have logged out
 		response.sendRedirect("index.jsp");
+	
 	}
 
-
-	 
 	
+
 
 }

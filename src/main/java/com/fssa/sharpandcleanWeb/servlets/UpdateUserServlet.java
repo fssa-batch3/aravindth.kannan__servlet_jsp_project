@@ -42,10 +42,8 @@ public class UpdateUserServlet extends HttpServlet {
 	        response.sendRedirect("customer_profile.jsp");
 	            
 	    } catch (ServiceException e) {
-//	    	out.println("Error: " + e.getLocalizedMessage());
-//	    	String msg = e.getMessage();
-//			String[] error = msg.split(":");
-//			response.sendRedirect("customer_profile_page.jsp?error="+error[1]+"&email="+loggedInEmail);
+
+			response.sendRedirect("customer_profile_page.jsp?error="+e);
 			out.print(e.getMessage());
 	    }
 	}
