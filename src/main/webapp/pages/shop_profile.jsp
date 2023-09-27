@@ -3,7 +3,10 @@
     <%@ page
 	import="com.fssa.sharpandclean.service.exception.ServiceException"%>
 <%@ page import="com.fssa.sharpandclean.service.SalonService"%>
+<%@ page import="com.fssa.sharpandclean.service.StyleService"%>
 <%@ page import="com.fssa.sharpandclean.model.Salon"%>
+<%@ page import="com.fssa.sharpandclean.model.Style" %>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -236,8 +239,28 @@
           </div>
         </form>
       </div>
-
-      <div class="haircuts"></div>
+      
+      <!-- Haircut card create here -->
+      <div class="haircuts">
+      <%
+      List<Style> style = new StyleService().getStylesByEmail(loggedInEmail);
+      for(Style style1 : style){  
+      %>
+      <div class="haircut_card">
+      <img src="<%= style1.getHaircutUrl() %>" class="haircut_card_img" />
+      <div class="haircut_card-content">
+      <h2 class="haircut_card-title"><%= style1.getHaircutName() %></h2>
+      <p class="haircut_card-text"><%= style1.getHaircutAbout() %></p>
+      <button class="haircut_delete">Delete</button>
+      <a href="salon_style_update.jsp?styleId=<%= style1.getHaircutId() %>" class="haircut_edit">Edit</a>
+      </div>
+      
+      </div>
+      
+      <%
+       }
+      %>
+      </div>
     </div>
     <!-- section is ended -->
 

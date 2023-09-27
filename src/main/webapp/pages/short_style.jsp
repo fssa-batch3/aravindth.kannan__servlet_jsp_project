@@ -121,13 +121,14 @@
       %>
 
 
-      <div class="card">
+       <div class="haircut_card">
       
-          <img class="card_img" src="<%= style1.getHaircutUrl() %>" alt="">
+          <img class="haircut_card_img" src="<%= style1.getHaircutUrl() %>" alt="">
          
-          <div class="card-content">
-            <h2 class="card-title"><%= style1.getHaircutName() %></h2>
-            <p class="card-text"><%= style1.getHaircutAbout() %></p>
+          <div class="haircut_card-content">
+            <h2 class="haircut_card-title"><%= style1.getHaircutName() %></h2>
+            <p class="haircut_card-text"><%= style1.getHaircutAbout() %></p>
+             <a href="salon_style_update.jsp?styleId=<%= style1.getHaircutId() %>" class="haircut_delete">Select</a>
           </div>
         </div>
         
