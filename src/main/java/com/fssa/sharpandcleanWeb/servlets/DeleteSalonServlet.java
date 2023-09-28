@@ -16,7 +16,7 @@ import com.fssa.sharpandclean.service.exception.ServiceException;
 @WebServlet("/DeleteSalonServlet")
 public class DeleteSalonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+        
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

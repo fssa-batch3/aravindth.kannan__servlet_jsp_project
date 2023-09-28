@@ -129,7 +129,7 @@
           <div class="haircut_card-content">
             <h2 class="haircut_card-title"><%= style1.getHaircutName() %></h2>
             <p class="haircut_card-text"><%= style1.getHaircutAbout() %></p>
-             <a href="salon_style_update.jsp?styleId=<%= style1.getHaircutId() %>" class="haircut_delete">Select</a>
+             <a href="customer_login.jsp" class="haircut_delete">Select</a>
           </div>
         </div>
         

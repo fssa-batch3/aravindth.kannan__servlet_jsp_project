@@ -251,7 +251,7 @@
       <div class="haircut_card-content">
       <h2 class="haircut_card-title"><%= style1.getHaircutName() %></h2>
       <p class="haircut_card-text"><%= style1.getHaircutAbout() %></p>
-      <button class="haircut_delete">Delete</button>
+      <a href="DeleteStyleCardServlet?styleID=<%= style1.getHaircutId() %>" class="haircut_delete">Delete</a>
       <a href="salon_style_update.jsp?styleId=<%= style1.getHaircutId() %>" class="haircut_edit">Edit</a>
       </div>
       
