@@ -349,17 +349,16 @@ body {
   overflow: hidden;
 }
 .haircut_card-content {
-  z-index: 1;
-  margin-top: -50%;
-  width: 285px;
+  margin-top: -63%;
+  width: 288px;
   height: fit-content;
   padding: 2%;
   background: linear-gradient(
     hsl(0 0% 0% / 0),
-    hsl(20 0% 0% / 0.3) 20%,
-    hsl(0 0% 0% / 1)
+    hsl(0 0% 0% / 0.1) 10%,
+    hsl(0 0% 0% / 0.2)
   );
-  transform: translateY(58%);
+ 
   transition: transform 300ms ease-in-out;
 }
 
@@ -383,7 +382,7 @@ body {
 
 .haircut_card-text {
   color: rgb(255 255 255 / 0.8);
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -393,7 +392,7 @@ body {
 
 .haircut_card:hover .haircut_card-title::after {
   transform: scalex(1);
-}
+}      
 
 .haircut_card:hover .haircut_card-content {
   transform: translateY(0);
@@ -402,3 +401,35 @@ body {
   transform: scale(1.02);
   z-index: -2;
 }
+.haircut_delete {
+  width: 60px;
+  margin-left: 2%;
+  border-radius: 3px;
+  height: auto;
+  
+    text-decoration: none;
+  padding:0.5%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  color: white;
+  border: 1px solid white;
+  background-color: black;
+}
+.haircut_edit{
+	width: 60px;
+	padding:0.5%;
+	text-decoration: none;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-left: 27%;
+    margin-top: -7%;
+    border-radius: 3px;
+    color: white;
+    border: 1px solid white;
+    background-color: black;
+}
+
+
+
