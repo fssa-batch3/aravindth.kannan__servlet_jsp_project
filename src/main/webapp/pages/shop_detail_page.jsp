@@ -20,7 +20,6 @@
   
   <%
 		int salon_id = Integer.parseInt(request.getParameter("salonId"));
-
 		SalonService salonService = new SalonService();
 		Salon salon = null;
 
