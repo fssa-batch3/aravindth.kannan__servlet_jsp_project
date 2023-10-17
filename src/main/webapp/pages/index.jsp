@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Index page</title>
-<link rel="stylesheet" href="./css/universe.css" />
+<link rel="stylesheet" href="<%request.getContextPath()%>/css/universe.css" />
 <link rel="stylesheet" href="./css/contact_us.css" />
 <link rel="stylesheet" href="./css/home.css" />
 <link rel="stylesheet" href="./css/about_us.css" />
