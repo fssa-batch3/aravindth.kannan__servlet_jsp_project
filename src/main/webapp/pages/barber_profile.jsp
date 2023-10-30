@@ -62,7 +62,7 @@
         </div>
 
         <div class="two_buttons">
-        <a class="p_edit" href="./barber_profile_edit.html">Delete </a>
+        
           <a class="p_edit" href="./barber_profile_edit.jsp">Edit </a>
           <a href="BarberLogoutServlet" id="delete_barber" class="p_edit">Logout</a>
         </div>

@@ -26,7 +26,7 @@
           <img
             class="book-img-1"
             alt="image"
-            src="../Assets/Images/book-1.jpg"
+            src="../Assets/Images/book-4.jpg"
           />
         </div>
         <div class="book-font">
