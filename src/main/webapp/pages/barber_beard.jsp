@@ -34,7 +34,7 @@
      <!-- search bar end-->
 
     <div class="Short">
-      <p class="short-1">Beard trim</p>
+      <p class="short-1">Beard Trim</p>
     </div>
     <section>
       <div class="big-div">
@@ -152,6 +152,6 @@
     </footer>
 
      
-    <script src="../Assets/JS/search_br.js"></script>
+    <script src="../Assets/JS/style_search_br.js"></script>
   </body>
 </html>

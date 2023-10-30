@@ -76,11 +76,9 @@
             required
           >
             <option>Haircut</option>
-            <option>Hair coloring</option>
-            <option>Hair straightning</option>
-            <option>Facials</option>
-            <option>Shaves</option>
-            <option>Beard trim</option>
+            <option>Hair Coloring</option>
+            <option>Hair Straightning</option>
+            <option>Beard Trim</option>
           </select>
         </div>
         <div class="phone">

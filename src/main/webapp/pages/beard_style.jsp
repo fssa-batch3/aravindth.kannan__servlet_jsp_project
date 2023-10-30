@@ -22,20 +22,18 @@
 		<div class="header">
 			<div>
 				<a href="index.jsp"> <img class="logo_img"
-					src="../images/sharp logo black.png" alt="logo" />
+					src="../Assets/Images/sharp logo black.png" alt="logo" />
 				</a>
 			</div>
 			<div>
 				<nav class="All-navs">
 					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Hair styles</button>
+						<button class="nav_dropbtn">Hair Styles</button>
 						<div class="nav_dropdown-content">
-							<a href="medium_style.jsp">Haircut</a> <a
-								href="fade_style.jsp">Hair straightening</a> <a
-								href="long_style.jsp">Hair coloring</a> <a
-								href="undercut_style.jsp">Facials</a> <a
-								href="short_style.jsp">Shaves</a> <a
-								href="beard_style.jsp">Beard trim</a>
+							<a href="haircut_style.jsp">Haircut</a> 
+							<a href="hair_straightening.jsp">Hair Straightening</a> 
+								<a href="hair_coloring.jsp">Hair Coloring</a> 
+								<a href="beard_style.jsp">Beard Trim</a>
 						</div>
 					</div>
 					<div class="nav_dropdown">
@@ -57,7 +55,7 @@
      <!-- search bar end-->
 
     <div class="Short">
-      <p class="short-1">Beard trim</p>
+      <p class="short-1">Beard Trim</p>
     </div>
     <section>
       <div class="big-div">
@@ -175,6 +173,6 @@
     </footer>
 
      
-    <script src="../Assets/JS/search_br.js"></script>
+    <script src="../Assets/JS/style_search_br.js"></script>
   </body>
 </html>

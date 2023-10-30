@@ -31,16 +31,13 @@ public class RegisterServlet extends HttpServlet {
 		try {
 		UserService userService = new UserService();
 		User user1 = new User( email, userName, password, phoneNumber);
-		System.out.print(user1);
 		
 			userService.registerUser(user1);
-			System.out.println("done 2");
 				
 				response.sendRedirect(request.getContextPath()+"/pages/customer_login.jsp");
 			
 		} catch (ServiceException e) {
 			out.println(e.getMessage());
-			System.out.print("Done 3");
 			response.sendRedirect(request.getContextPath()+"/pages/customer_register.jsp");
 		}
 

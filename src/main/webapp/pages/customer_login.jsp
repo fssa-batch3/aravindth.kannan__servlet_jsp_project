@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User login page</title>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css">
+<link rel="stylesheet" href="../Assets/CSS/login.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
       <img
         class="logo"
         alt="image"
-        src="<%=request.getContextPath()%>/images/sharp logo black.png"
+        src="../Assets/Images/sharp logo black.png"
       />
     </div>
     <form action="login"  method="post">
@@ -37,7 +37,7 @@
         </div>
         <div class="email-id-box">
           <input
-          value="aravindth@gmail.com"
+          value="maha@gmail.com"
             class="email-id-box-1"
             type="email"
             name="email"

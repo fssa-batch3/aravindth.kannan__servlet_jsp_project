@@ -85,7 +85,6 @@
 
       <!-- samples of that shop -->
       <div class="all_haircuts">
-        <p class="samples">Salon's sample haircuts</p>
          <%
       List<Style> style = new StyleService().getStylesByEmail(salon.getSalonEmail());
       for(Style style1 : style){  
@@ -95,7 +94,6 @@
       <div class="haircut_card-content">
       <h2 class="haircut_card-title"><%= style1.getHaircutName() %></h2>
       <p class="haircut_card-text"><%= style1.getHaircutAbout() %></p>
-      <a href="DeleteStyleCardServlet?styleID=<%= style1.getHaircutId() %>" class="haircut_delete">Select</a>
       
       </div>
       
@@ -104,9 +102,7 @@
       <%
        }
       %>
-        <div class="about_shop">
         
-        </div>
       </div>
       
       <!-- samples of that shop -->

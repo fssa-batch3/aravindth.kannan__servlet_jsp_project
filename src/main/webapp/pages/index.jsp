@@ -6,10 +6,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Index page</title>
-<link rel="stylesheet" href="<%request.getContextPath()%>/css/universe.css" />
-<link rel="stylesheet" href="./css/contact_us.css" />
-<link rel="stylesheet" href="./css/home.css" />
-<link rel="stylesheet" href="./css/about_us.css" />
+<link rel="stylesheet" href="../Assets/CSS/universe.css" />
+<link rel="stylesheet" href="../Assets/CSS/contact_us.css" />
+<link rel="stylesheet" href="../Assets/CSS/home.css" />
+<link rel="stylesheet" href="../Assets/CSS/about_us.css" />
+<link rel="stylesheet" href="../Assets/CSS/home_design.css" />
 
 </head>
 
@@ -21,20 +22,18 @@
 		<div class="header">
 			<div>
 				<a href="index.jsp"> <img class="logo_img"
-					src="../images/sharp logo black.png" alt="logo" />
+					src="../Assets/Images/sharp logo black.png" alt="logo" />
 				</a>
 			</div>
 			<div>
 				<nav class="All-navs">
 					<div class="nav_dropdown">
-						<button class="nav_dropbtn">Hair styles</button>
+						<button class="nav_dropbtn">Hair Styles</button>
 						<div class="nav_dropdown-content">
-							<a href="medium_style.jsp">Haircut</a> <a
-								href="fade_style.jsp">Hair straightening</a> <a
-								href="long_style.jsp">Hair coloring</a> <a
-								href="undercut_style.jsp">Facials</a> <a
-								href="short_style.jsp">Shaves</a> <a
-								href="beard_style.jsp">Beard trim</a>
+							<a href="haircut_style.jsp">Haircut</a> 
+							<a href="hair_straightening.jsp">Hair Straightening</a> 
+								<a href="hair_coloring.jsp">Hair Coloring</a> 
+								<a href="beard_style.jsp">Beard Trim</a>
 						</div>
 					</div>
 					<div class="nav_dropdown">
@@ -90,14 +89,16 @@
 				</div>
 			</div>
 			<div class="heroimgdiv">
-				<img class="heroimg" src="../images/about hero.jpg" alt="haircut" />
+				<img class="heroimg" src="../Assets/Images/about hero.jpg"
+					alt="haircut" />
 			</div>
 		</div>
 	</section>
 	<section>
 		<div class="online_booking">
 			<div>
-				<img src="../images/book section.png" class="bookimg" alt="haircut" />
+				<img src="../Assets/Images/book section.png" class="bookimg"
+					alt="haircut" />
 			</div>
 			<div class="book">
 				<h2>Welcome to the Sharp & Clean</h2>
@@ -117,27 +118,28 @@
 
 		<div class="features">
 			<div class="service_div">
-				<img class="service_img" src="../images/service 1.jpg" alt="haricut" />
+				<img class="service_img" src="../Assets/Images/service 1.jpg"
+					alt="haricut" />
 			</div>
 			<div class="all">
 				<div class="service">
-					<img src="../images/service 2.png" alt="service" width="100px"
-						height="100px" />
+					<img src="../Assets/Images/service 2.png" alt="service"
+						width="100px" height="100px" />
 					<p>Hair Cut</p>
 				</div>
 				<div class="service">
-					<img src="../images/service 3.png" alt="service" width="100px"
-						height="100px" />
+					<img src="../Assets/Images/service 3.png" alt="service"
+						width="100px" height="100px" />
 					<p>Shaving</p>
 				</div>
 				<div class="service">
-					<img src="../images/service 4.png" alt="service" width="100px"
-						height="100px" />
+					<img src="../Assets/Images/service 4.png" alt="service"
+						width="100px" height="100px" />
 					<p>Beard Trim</p>
 				</div>
 				<div class="service">
-					<img src="../images/service 5.png" alt="service" width="100px"
-						height="100px" />
+					<img src="../Assets/Images/service 5.png" alt="service"
+						width="100px" height="100px" />
 					<p>Kid haircut</p>
 				</div>
 			</div>
@@ -149,12 +151,15 @@
 		<div class="works">
 			<h2>Experience the Best Haircut & Shave Services</h2>
 			<div>
-				<img src="../images/img 1.jpg" alt="Haircut image" class="free_img" />
-				<img src="../images/img 2.jpg" alt="Haircut image" class="free_img" />
-				<img src="../images/img 3.jpg" alt="Haircut image" class="free_img" />
-				<img src="../images/img 4.jpg" alt="Haircut image" class="free_img" />
-				<img src="../images/img 5.jpg" alt="Haircut image" class="free_img" />
-				<img src="../images/img 6.jpg" alt="Haircut image" class="free_img" />
+				<img src="../Assets/Images/img 1.jpg" alt="Haircut image"
+					class="free_img" /> <img src="../Assets/Images/img 2.jpg"
+					alt="Haircut image" class="free_img" /> <img
+					src="../Assets/Images/img 3.jpg" alt="Haircut image"
+					class="free_img" /> <img src="../Assets/Images/img 4.jpg"
+					alt="Haircut image" class="free_img" /> <img
+					src="../Assets/Images/img 5.jpg" alt="Haircut image"
+					class="free_img" /> <img src="../Assets/Images/img 6.jpg"
+					alt="Haircut image" class="free_img" />
 			</div>
 		</div>
 	</div>
@@ -173,11 +178,12 @@
 		<div class="fullcard">
 			<div class="reviewcard">
 				<div class="flex">
-					<img src="../images/test.png" alt="designimg" height="60px"
+					<img src="../Assets/Images/test.png" alt="designimg" height="60px"
 						width="60px">
 					<div class="flexin">
 						<h3>John D.</h3>
-						<img src="../images/undercut-1.jpeg" alt="tester" class="tester">
+						<img src="../Assets/Images/undercut-1.jpeg" alt="tester"
+							class="tester">
 					</div>
 				</div>
 				<p>"I can't recommend this barber shop enough! The barbers are
@@ -187,11 +193,12 @@
 			</div>
 			<div class="reviewcard">
 				<div class="flex">
-					<img src="../images/test.png" alt="designimg" height="60px"
+					<img src="../Assets/Images/test.png" alt="designimg" height="60px"
 						width="60px">
 					<div class="flexin">
 						<h3>Michael R.</h3>
-						<img src="../images/undercut-8.jpeg" alt="tester" class="tester">
+						<img src="../Assets/Images/undercut-8.jpeg" alt="tester"
+							class="tester">
 					</div>
 				</div>
 				<p>"I've been searching for a barber who can handle my unruly
@@ -200,11 +207,12 @@
 			</div>
 			<div class="reviewcard">
 				<div class="flex">
-					<img src="../images/test.png" alt="designimg" height="60px"
+					<img src="../Assets/Images/test.png" alt="designimg" height="60px"
 						width="60px">
 					<div class="flexin">
 						<h3>Sarah L.</h3>
-						<img src="../images/undercut-4.jpeg" alt="tester" class="tester">
+						<img src="../Assets/Images/undercut-4.jpeg" alt="tester"
+							class="tester">
 					</div>
 				</div>
 				<p>"Walking into this barber shop is like stepping back in time.
@@ -222,7 +230,8 @@
 		<h1 class="Contact_us_font">Contact us</h1>
 		<div class="maincontent">
 			<div class="con_img_div">
-				<img class="big_img" src="../images/contact.jpg" alt="haircut image" />
+				<img class="big_img" src="../Assets/Images/contact.jpg"
+					alt="haircut image" />
 			</div>
 
 			<div class="cont_container">
@@ -256,27 +265,42 @@
 	<!-- section is ended -->
 
 	<!-- footer is started -->
-	<footer>
-		<div class="footer">
-
-			<div class="footicons">
-				<a href="#"><img class="footround"
-					src="../images/Y- facebook.png" alt="What's app" /></a> <a
-					href="#"> <img class="footround" src="../images/Y- insta.png"
-					alt="face book" /></a> <a href="#"> <img
-					class="footround" src="../images/Y- twitter.png" alt="instagram" /></a>
-
-			</div>
-			<br>
-			<div class="footer_firsthalf">
-				<a>Home</a> <a>Services</a> <a>About</a> <a>terms</a> <a>Privacy
-					policy</a>
-			</div>
-			<div class="copy_right_div">
-				<pre>sharp & clean  <img class="c_round" alt="copy right"
-						src="../images/C - copyright.png" />  2023</pre>
-			</div>
-		</div>
-	</footer>
+  <footer>
+      <div class="footer">
+        
+          <div class="footicons">
+            <a href="#"
+              ><img
+                class="footround"
+                src="../Assets/Images/Y- facebook.png"
+                alt="What's app"
+            /></a>
+            <a href="#">
+              <img
+                class="footround"
+                src="../Assets/Images/Y- insta.png"
+                alt="face book"
+            /></a>
+            <a href="#">
+              <img
+                class="footround"
+                src="../Assets/Images/Y- twitter.png"
+                alt="instagram"
+            /></a>
+           
+          </div>
+          <br>
+          <div class="footer_firsthalf">
+            <a>Home</a>
+            <a>Services</a>
+            <a>About</a>
+            <a>terms</a>
+            <a>Privacy policy</a>
+        </div>
+        <div class="copy_right_div">
+          <pre>sharp & clean  <img alt="copy right" class="c_round" src="../Assets/Images/C - copyright.png"/>  2023</pre>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>

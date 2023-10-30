@@ -15,12 +15,12 @@
 
     <!-- section is started -->
     <div class="haircut">
-      <p class="haircut-1">Appointment booking</p>
+      <p class="haircut-1">Appointment Booking</p>
     </div>
     <div class="selecters">
       <div class="book">
         <div class="book-head">
-          <p class="book-head-1">Book appointment in salon</p>
+          <p class="book-head-1">Book Appointment In Salon</p>
         </div>
         <div class="book-img">
           <img
@@ -44,7 +44,7 @@
 
       <div class="book">
         <div class="book-head">
-          <p class="book-head-1">Book appointment with barber</p>
+          <p class="book-head-1">Book Appointment With Barber</p>
         </div>
         <div class="book-img">
           <img

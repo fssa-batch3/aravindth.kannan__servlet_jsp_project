@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page
-	import="com.fssa.sharpandclean.service.exception.ServiceException"%>
+    pageEncoding="ISO-8859-1" %>
+<%@ page import="com.fssa.sharpandclean.service.exception.ServiceException"%>
 <%@ page import="com.fssa.sharpandclean.service.BarberService"%>
 <%@ page import="com.fssa.sharpandclean.model.Barber"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,7 +63,7 @@
 
         <div class="two_buttons">
         <a class="p_edit" href="./barber_profile_edit.html">Delete </a>
-          <a class="p_edit" href="./barber_profile_edit.html">Edit </a>
+          <a class="p_edit" href="./barber_profile_edit.jsp">Edit </a>
           <a href="BarberLogoutServlet" id="delete_barber" class="p_edit">Logout</a>
         </div>
       </div>

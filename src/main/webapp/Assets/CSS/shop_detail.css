@@ -35,6 +35,15 @@ body {
 .all_haircuts {
   width: 45%;
   height: 100%;
+  padding: 3%;
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  grid-template-columns: auto auto;
+  background-color: #f3b37d;
+  background-image: linear-gradient(132deg, #f3b37d 0%, #f7f7c4 100%);
+  border: 1px solid black;
+  border-radius: 20px;
 }
 .about_shop {
   width: 100%;
@@ -228,6 +237,7 @@ body {
 }
 .select_btn {
   border-radius: 5px;
+  text-decoration: none;
   color: black;
   font-size: 1.2em;
   font-weight: bold;
@@ -235,8 +245,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: white;
-  width: 30%;
-  height: 50%;
+  width: 20%;
+  height: 50px;
   transition: 0.5s;
 }
 .select_btn:hover {
@@ -405,8 +415,6 @@ body {
   width: 60px;
   margin-left: 2%;
   border-radius: 3px;
-  height: auto;
-  
     text-decoration: none;
   padding:0.5%;
     height: auto;

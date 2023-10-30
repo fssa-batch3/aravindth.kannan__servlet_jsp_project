@@ -54,12 +54,6 @@
         <br />
         <input value="<%= loggedInEmail%>" type="email" class="form-control personEmail" id="email" disabled />
       </div>
-      <div class="form-group">
-        <label for="pwd" class="all_label">Password:</label>
-        <br />
-        <br />
-        <input name="password" value="<%= user.getPassword() %>" type="password" class="form-control personPassword" id="password"  />
-      </div>
 	
       <div class="form-group">
         <label for="pwd" class="all_label">Phone number:</label>

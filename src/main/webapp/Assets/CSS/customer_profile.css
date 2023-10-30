@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   border: 1px solid white;
-  flex-wrap: wrap;
+  justify-content:center;
   margin-left: 10%;
   border-radius: 5px;
   margin-top: 4%;
@@ -76,11 +76,8 @@ body {
   border-radius: 5px;
   width: 12rem;
   height: 3rem;
-
   border: 1px solid white;
-
   background-color: black;
-
   transition: 0.7s;
 }
 .delete_btn:hover {
@@ -89,20 +86,15 @@ body {
 .submit_btn {
   text-decoration: none;
   color: white;
-
   text-align: center;
   padding: 0px;
-
   font-size: 2rem;
   font-weight: bolder;
-
   width: 12rem;
   height: 3rem;
   border-radius: 5px;
   border: 1px solid white;
- 
   background-color: black;
-  
   transition: 0.7s;
   display: flex;
   align-items: center;

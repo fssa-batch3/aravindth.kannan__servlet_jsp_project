@@ -1,3 +1,7 @@
+<%@ page import="com.fssa.sharpandclean.service.exception.ServiceException"%>
+<%@ page import="com.fssa.sharpandclean.service.BarberService"%>
+<%@ page import="com.fssa.sharpandclean.model.Barber"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +13,26 @@
     <title>barber profile edit</title>
   </head>
   <body>
-    <form class="card_form" id="E_form">
+ 
+    <%
+	String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+	
+	if(loggedInEmail == null) {
+		response.sendRedirect("barber_login.jsp");
+	}
+	
+	BarberService barberService = new BarberService();
+	Barber barber =  null;
+	
+	try {
+		barber = barberService.getBarberByEmail(loggedInEmail);
+	} catch (ServiceException e) {
+		// Handle the exception appropriately, e.g., display an error message to the user or log it
+		out.println("Error: " + e.getMessage());
+	}
+	
+%>
+    <form class="card_form" action="UpdateBarberProfileServlet" method="post" id="E_form">
       <div class="name">
         <label>Name</label>
         <div class="name-box">
@@ -17,9 +40,10 @@
           required
           pattern="[A-Za-z0-9]+"
           title="Make sure that name should not contain space"
-            id="b_name"
             class="name-box-1"
             type="text"
+            name="barber_name"
+            value="<%= barber.getBarberName() %>"
             autocomplete="name"
           />
         </div>
@@ -30,35 +54,31 @@
         <div class="name-box">
           <input 
           required
+          name="barber_profile"
+          value="<%= barber.getBarberProfile() %>"
           class="name-box-1" type="url" id="b_photo" />
         </div>
       </div>
-      <div class="email">
-        <label>Slogan</label>
-        <div class="address-box">
-          <input 
-          required
-          pattern="[A-Za-z0-9]+"
-          title="Make sure that name should not contain space"
-          class="name-box-1" type="text" id="b_slogan" />
-        </div>
-      </div>
+      
       <div class="email">
         <label>Phone</label>
         <div class="address-box">
           <input 
           required
+          name="barber_phone"
+          value="<%= barber.getBarberPhone() %>"
           class="name-box-1" type="number" id="b_phone_number" />
         </div>
       </div>
-      <div class="experience">
+      <div class="all_inputs">
         <label>Experience</label>
         <div class="address-box">
           <input 
+          name="barber_ex"
+          value="<%= barber.getBarberExperience() %>"
           required
-          pattern="[A-Za-z0-9]+"
           title="Make sure that name should not contain space"
-          class="name-box-1" type="text" id="b_experience" />
+          class="name-box-1" type="text"  />
         </div>
       </div>  
           <div class="all_inputs">
@@ -67,117 +87,54 @@
             <br />
             <textarea 
             required
-            pattern="[A-Za-z0-9]+"
+            pattern ="[A-Za-z0-9]+" 
             title="Make sure that name should not contain space"
-            id="b_address" class="name-box-1" name="address" rows="5" cols="50"></textarea>
+            id="b_address" class="name-box-1" name="barberAddress" rows="5" cols="50"><%= barber.getBarberAddress() %></textarea>
           </div>
 
           <div class="all_inputs">
-            <label class="all_label">About</label>
+            <label class="all_label">Barber About</label>
             <br />
             <br />
             <textarea 
             required
             pattern="[A-Za-z0-9]+"
             title="Make sure that name should not contain space"
-            id="about" class="name-box-1" name="address" rows="5" cols="50"></textarea>
+            id="about" class="name-box-1" name="barberAbout" rows="5" cols="50"><%= barber.getBarberAbout() %></textarea>
           </div>
+          <div class="name">
+        <label>Sample Haircut-1</label>
+        <div class="name-box">
+          <input 
+          required
+          value="<%= barber.getSample_1()%>"
+          class="name-box-1" type="url" id="s_photo" name="sample1"/>
+        </div>
+      </div>
+      <div class="name">
+        <label>Sample Haircut-2</label>
+        <div class="name-box">
+          <input 
+          required
+          value="<%= barber.getSample_2()%>"
+          class="name-box-1" type="url" id="s_photo" name="sample2"/>
+        </div>
+      </div>
+      <div class="name">
+        <label>Sample Haircut-3</label>
+        <div class="name-box">
+          <input 
+          required
+          value="<%= barber.getSample_3() %>"
+          class="name-box-1" type="url" id="s_photo" name="sample3"/>
+        </div>
+      </div>
       <div class="submit">
-        <button class="submit-1">Save</button>
+        <button class="submit-1">Update</button>
       </div>
     </form>
 
-
     <!-- javav-script -->
-
-    <script>
-      // Java Script
-      const thisBarber = JSON.parse(localStorage.getItem("single_barber"));
-      const barberProfileArray = JSON.parse(localStorage.getItem("barber_profile"));
-         // get object from local storage by email
-
-      let oneBarber = barberProfileArray.find(function (event) {
-        let oneBarberEmail = event["barber_email"];
-        if (thisBarber == oneBarberEmail) {
-          return true;
-        }
-      });
-
-     
-         // show data from local storage!
-        const barberName = document.getElementById("b_name").value = oneBarber["barbername"]
-        const phoneNumber = document.getElementById("b_phone_number").value = oneBarber["barber_phone"]
-        const barberProfile = document.getElementById("b_photo").value = oneBarber["barber_photo"]
-        const barberSlogan = document.getElementById("b_slogan").value = oneBarber["barber_slogan"]
-        const barberExperience = document.getElementById("b_experience").value = oneBarber["barber_experience"]
-        const barberAddress = document.getElementById("b_address").value = oneBarber["barber_address"]
-        const barberAbout = document.getElementById("about").value = oneBarber["barber_about"]
-        
-
-         // edit page function!
-
-        let save = document.getElementById("E_form");
-
-        save.addEventListener("submit",function(event){
-            event.preventDefault();
-
-         // get data from edit form!
-
-            let barbername = document.getElementById("b_name").value;
-            let barber_phone = document.getElementById("b_phone_number").value;
-            let barber_photo = document.getElementById("b_photo").value;
-            let barber_slogan = document.getElementById("b_slogan").value;
-            let barber_experience = document.getElementById("b_experience").value;
-            let barber_address = document.getElementById("b_address").value;
-            let barber_about = document.getElementById("about").value;
-            let barber_email = thisBarber;
-            
-            var regex = /^[6789]{1}[0-9]{9,15}$/;
-    if (regex.test(barber_phone)) {
-      console.log("Valid phone number!");
-    } else {
-      alert("Phone number is invalid kindly change your number");
-      return;
-    }
-        //  some errors in this step
-            let editBarberData = {
-                barbername,
-                barber_email,
-                barber_phone,
-                barber_photo,
-                barber_slogan,
-                barber_experience,
-                barber_address,
-                barber_about,
-            };
-
-         // email validation!
-
-                let newData = JSON.parse(localStorage.getItem("barber_profile"));
-
-          
-                let oldData = newData.find(i => i.barber_email == barber_email);
-
-                if(oldData == undefined) {
-                    alert("Email Id not match");
-                }
-
-         // assign the value in object!
-                else {
-                    let updated = Object.assign(oldData, editBarberData);
-                    let index = newData.indexOf(oldData.barber_email);
-                    newData[index] = updated;
-                    localStorage.setItem("barber_profile", JSON.stringify(newData));
-                    alert("Successfully barber profile edited");
-                    window.location.href = "./barber_profile.html";
-                }
-           
-       
-        });
-
-       
-    </script>
-  
    
   </body>
 </html>

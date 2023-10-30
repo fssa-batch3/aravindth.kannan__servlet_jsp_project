@@ -90,8 +90,6 @@
       for(Style style1 : styles) {
     	  
       %>
-
-
        <div class="haircut_card">
       
           <img class="haircut_card_img" src="<%= style1.getHaircutUrl() %>" alt="">
@@ -151,6 +149,6 @@
     </footer>
 
      
-    <script src="../Assets/JS/search_br.js"></script>
+    <script src="../Assets/JS/style_search_br.js"></script>
   </body>
 </html>

@@ -9,16 +9,19 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      background-color: grey;
+      
     }
 
     .container {
-      max-width: 500px;
-      margin: 0 auto;
+    
+      max-width: 600px;
+      margin: 3% auto;
       padding: 20px;
-      background-color: #fff;
+      background: rgb(240,244,240);
+      background: radial-gradient(circle, rgba(240,244,240,1) 0%, rgba(222,233,241,1) 100%);
       border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px black;
     }
 
     .container h2 {
@@ -37,7 +40,7 @@
     input[type="url"],
     input[type="number"],
     textarea {
-      width: 100%;
+      width: 97%;
       padding: 10px;
       margin-bottom: 10px;
       border: 1px solid #ccc;
@@ -54,7 +57,7 @@
     }
 
     input[type="submit"]:hover {
-      background-color: #0056b3;
+      background-color: black;
     }
   </style>
 </head>
@@ -105,11 +108,11 @@
       
       
       <!-- Barber Profile URL -->
-      <label for="profile_url">Sample haircut 1:</label>
+      <label for="profile_url">Sample haircut 2:</label>
       <input type="url" id="profile_url"  value="https://i.pinimg.com/originals/18/a5/79/18a5792983a99ed184c7a20c35366821.jpg" name="sample_2" required>
       
       <!-- Barber Profile URL -->
-      <label for="profile_url">Sample haircut 1:</label>
+      <label for="profile_url">Sample haircut 3:</label>
       <input type="url" id="profile_url"  value="https://i.pinimg.com/originals/18/a5/79/18a5792983a99ed184c7a20c35366821.jpg" name="sample_3" required>
       <!-- Submit Button -->
       <input type="submit" value="Register">

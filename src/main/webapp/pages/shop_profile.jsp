@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page
-	import="com.fssa.sharpandclean.service.exception.ServiceException"%>
+<%@ page import="com.fssa.sharpandclean.service.exception.ServiceException"%>
 <%@ page import="com.fssa.sharpandclean.service.SalonService"%>
 <%@ page import="com.fssa.sharpandclean.service.StyleService"%>
 <%@ page import="com.fssa.sharpandclean.model.Salon"%>
@@ -206,11 +205,9 @@
             <br />
             <select name="haircutType"  id="type_id" class="name-box-1" required>
               <option>Haircut</option>
-              <option>Hair coloring</option>
-              <option>Hair straightening</option>
-              <option>Facials</option>
-              <option>Shaves</option>
-              <option>Beard trim</option>
+              <option>Hair Coloring</option>
+              <option>Hair Straightening</option>
+              <option>Beard Trim</option>
             </select>
           </div>
 
