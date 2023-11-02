@@ -19,10 +19,6 @@ import com.fssa.sharpandclean.service.exception.ServiceException;
 public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-	
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    HttpSession session = request.getSession();
 	    

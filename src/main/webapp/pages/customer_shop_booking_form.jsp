@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ page import="com.fssa.sharpandclean.service.exception.ServiceException"%>
-<%@page import="com.fssa.sharpandclean.service.SalonService"%>
+<%@ page import="com.fssa.sharpandclean.service.SalonService"%>
 <%@ page import="com.fssa.sharpandclean.model.Salon"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../Assets/CSS/universe.css" />
   </head>
   <body>
+   
   
       <%
 		int salon_id = Integer.parseInt(request.getParameter("salonId"));
@@ -41,6 +42,17 @@
         <div class="booking-shop">
           <p class="font">Booking Your Salon</p>
         </div>
+        <% 
+			String errorMessage = request.getParameter("error");
+			if(errorMessage != null){
+				%>
+				<div class="styledbutton" id="styledbuttonlogin">
+		    	   <%=errorMessage %><!-- this will change based on invalid field entered -->
+		    	</div>
+		    	<%
+			}
+		%>
+         
         <div class="name">
           <p class="name-1">Your Name</p>
           <input

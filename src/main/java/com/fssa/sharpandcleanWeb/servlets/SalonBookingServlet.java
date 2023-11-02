@@ -3,6 +3,7 @@ package com.fssa.sharpandcleanWeb.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +32,6 @@ public class SalonBookingServlet<LocalDate> extends HttpServlet {
 	    String userPhone = request.getParameter("bookUserPhone");
 		String username = request.getParameter("bookUsername");
 		String service = request.getParameter("bookingservice");
-//		LocalDate date = (LocalDate) request.getParameter("bookdate");
 		java.time.LocalDate date = java.time.LocalDate.parse(request.getParameter("bookdate"));
 
 		String time = request.getParameter("bookTime");
@@ -76,8 +76,15 @@ public class SalonBookingServlet<LocalDate> extends HttpServlet {
 		 response.sendRedirect(request.getContextPath()+"/pages/customer_shop_booking_payment.jsp?salonId="+salonID);
 		 
 		 }catch(ServiceException e) {
-				response.sendRedirect(request.getContextPath()+"/pages/customer_shop_booking_form.jsp"+e);
+				//response.sendRedirect(request.getContextPath()+"/pages/customer_shop_booking_form.jsp"+e);
 				out.print(e.getMessage());
+				String msg = e.getMessage();
+				String[] error = msg.split(":");
+				request.setAttribute("bookUsername", username);
+				request.setAttribute("bookUserPhone",userPhone);
+				
+				RequestDispatcher patcher = request.getRequestDispatcher("/pages/customer_shop_booking_form.jsp?error="+error[error.length-1]+"&salonId="+salonID);
+				patcher.forward(request, response);
 			 }
 	}
 

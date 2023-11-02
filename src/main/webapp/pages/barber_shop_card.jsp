@@ -23,6 +23,16 @@
       <p class="head_text">Register your Salon</p>
     </div>
     <form class="card_form" id="shop_profile_form" action="createsalon" method="post">
+     <% 
+			String errorMessage = request.getParameter("error");
+			if(errorMessage != null){
+				%>
+				<div class="styledbutton" id="styledbuttonlogin">
+		    	   <%=errorMessage %><!-- this will change based on invalid field entered -->
+		    	</div>
+		    	<%
+			}
+		%>
       <div class="name">
         <label>Salon name</label>
         <div class="name-box">
@@ -143,7 +153,7 @@
         <label>Favourite hairstyle 1</label>
         <div class="name-box">
           <input 
-           name="Fhaircut1"
+           name="haircut1"
           required
           class="name-box-1" type="url" id="s_photo" />
         </div>
@@ -153,7 +163,7 @@
         <div class="name-box">
           <input 
           required
-           name="Fhaircut2"
+           name="haircut2"
           class="name-box-1" type="url" id="s_photo" />
         </div>
       </div>
@@ -162,7 +172,7 @@
         <div class="name-box">
           <input 
           required
-          name="Fhaircut3"
+          name="haircut3"
           class="name-box-1" type="url" id="s_photo" />
         </div>
       </div>
