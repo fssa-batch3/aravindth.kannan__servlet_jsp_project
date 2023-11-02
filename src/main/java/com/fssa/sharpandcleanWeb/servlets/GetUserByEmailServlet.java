@@ -38,17 +38,13 @@ public class GetUserByEmailServlet extends HttpServlet {
 				e.printStackTrace();
 				request.setAttribute("error", "Error fetching user data.");
 			}
-			// Set salon data as an attribute to be used in the JSP
+			// Set user data as an attribute to be used in the JSP
 	        request.setAttribute("customer", user);
 	        
-	     // Forward the request to the salon details JSP
+	     // Forward the request to the user details JSP
 	        request.getRequestDispatcher("/pages/customer_profile.jsp").forward(request, response);
 		}
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }

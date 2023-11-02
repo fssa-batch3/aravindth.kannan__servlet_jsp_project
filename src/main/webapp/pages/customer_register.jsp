@@ -12,6 +12,16 @@
       <div class="head_div">
         <p class="head">Sign up</p>
       </div>
+       <% 
+			String errorMessage = request.getParameter("error");
+			if(errorMessage != null){
+				%>
+				<div class="styledbutton" id="styledbuttonlogin">
+		    	   <%=errorMessage %><!-- this will change based on invalid field entered -->
+		    	</div>
+		    	<%
+			}
+		%>
 
       <div class="all_inputs">
         <label for="user_name" class="all_label">Username</label>

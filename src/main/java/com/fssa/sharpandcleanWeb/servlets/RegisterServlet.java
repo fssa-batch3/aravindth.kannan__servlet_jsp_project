@@ -3,6 +3,7 @@ package com.fssa.sharpandcleanWeb.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,8 +38,17 @@ public class RegisterServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath()+"/pages/customer_login.jsp");
 			
 		} catch (ServiceException e) {
-			out.println(e.getMessage());
-			response.sendRedirect(request.getContextPath()+"/pages/customer_register.jsp");
+					
+			out.print(e.getMessage());
+			String msg = e.getMessage();
+			String[] error = msg.split(":");
+			request.setAttribute("name", userName);
+			request.setAttribute("email",email);
+			request.setAttribute("password",password);
+			request.setAttribute("phonenumber",phoneNumber);
+			
+			RequestDispatcher patcher = request.getRequestDispatcher("/pages/customer_register.jsp?error="+error[error.length-1]);
+			patcher.forward(request, response);
 		}
 
 	}

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Barber login page</title>
+<title>barber login page</title>
 <link rel="stylesheet" href="../Assets/CSS/login.css">
 </head>
 <body>

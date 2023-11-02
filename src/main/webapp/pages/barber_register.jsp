@@ -32,6 +32,27 @@
       display: block;
       margin-bottom: 5px;
     }
+    .styledbutton {
+	display:block;
+	outline: 0;
+	border: 0;
+	padding-left: 50px;
+	position: relative;
+	color:black;
+	font-width:bold;
+	background: #E66060;
+	line-height: 0px;
+	border-radius: 1px;
+	padding: 20px;
+	font-size: 20px;
+	font-weight: 420px;
+	box-shadow: 0px 0px 10px 5px black;
+	transition: all 0.2s;
+	margin-bottom:20px;
+}
+#styledbuttonlogin {
+	width: 92%;
+}
 
     input[type="text"],
     input[type="email"],
@@ -63,7 +84,18 @@
 </head>
 <body>
   <div class="container">
+  
     <h2>Barber Registration</h2>
+    <% 
+			String errorMessage = request.getParameter("error");
+			if(errorMessage != null){
+				%>
+				<div class="styledbutton" id="styledbuttonlogin">
+		    	   <%=errorMessage %><!-- this will change based on invalid field entered -->
+		    	</div>
+		    	<%
+			}
+		%>
     <form action="register" method="post">
       <!-- Barber Name -->
       <label for="barber_name">Barber Name:</label>

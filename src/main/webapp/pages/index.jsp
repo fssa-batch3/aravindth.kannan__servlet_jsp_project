@@ -182,7 +182,7 @@
 						width="60px">
 					<div class="flexin">
 						<h3>John D.</h3>
-						<img src="../Assets/Images/undercut-1.jpeg" alt="tester"
+						<img src="../Assets/Images/test 3.jpg" alt="tester"
 							class="tester">
 					</div>
 				</div>
@@ -197,7 +197,7 @@
 						width="60px">
 					<div class="flexin">
 						<h3>Michael R.</h3>
-						<img src="../Assets/Images/undercut-8.jpeg" alt="tester"
+						<img src="../Assets/Images/test 2.jpg" alt="tester"
 							class="tester">
 					</div>
 				</div>
@@ -211,7 +211,7 @@
 						width="60px">
 					<div class="flexin">
 						<h3>Sarah L.</h3>
-						<img src="../Assets/Images/undercut-4.jpeg" alt="tester"
+						<img src="../Assets/Images/test 1.jpg" alt="tester"
 							class="tester">
 					</div>
 				</div>

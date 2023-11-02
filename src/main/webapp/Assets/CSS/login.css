@@ -146,6 +146,28 @@ body {
   padding-left: 5%;
 }
 
+.styledbutton {
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	width: 100%;
+	padding-left: 50px;
+	position: relative;
+	color:black;
+	font-width:bold;
+	background: #E66060;
+	line-height: 0px;
+	border-radius: 1px;
+	padding: 20px;
+	font-size: 20px;
+	font-weight: 420px;
+	box-shadow: 0px 0px 10px 5px black;
+	transition: all 0.2s;
+}
+#styledbuttonlogin {
+	width: 100%;
+}
+
 @media screen and (max-width: 600px) {
   * {
     margin: 0;

@@ -52,7 +52,7 @@
       </div>
       <div class="payment_btn" >
        
-         <p > Successfully booked</p>
+         <a class="bookedSucc" href="GetBookingByUserEmailServlet" > Successfully booked</a>
       </div>
 
     </div>

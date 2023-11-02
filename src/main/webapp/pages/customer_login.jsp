@@ -23,15 +23,17 @@
         </div>
 
         <% 
-			String errorMessage = request.getParameter("errorMessage");
+			String errorMessage = request.getParameter("error");
 			if(errorMessage != null){
 				%>
-				<div class="alert-danger" role="alert">
+				<div class="styledbutton" id="styledbuttonlogin">
 		    	   <%=errorMessage %><!-- this will change based on invalid field entered -->
 		    	</div>
 		    	<%
 			}
 		%>
+		
+		
         <div class="email-id">
           <p class="email-id-1">Email</p>
         </div>
@@ -73,8 +75,5 @@
         </div>
       </div>
     </form>
-    
-   
-    
 </body>
 </html>

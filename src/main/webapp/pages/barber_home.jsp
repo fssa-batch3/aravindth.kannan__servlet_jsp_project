@@ -151,7 +151,6 @@
         </div>
       </div>
     </div>
-    </section>
     
     <section >
     <div class="review">
@@ -166,7 +165,7 @@
               <h3>
                 John D.
               </h3>
-              <img src="../Assets/Images/undercut-1.jpeg" alt="tester" class="tester">
+              <img src="../Assets/Images/test 1.jpg" alt="tester" class="tester">
             </div>
         </div>
         <p>"I can't recommend this barber shop enough! The barbers are true professionals who take their time to understand exactly what you want."</p>
@@ -179,7 +178,7 @@
             <h3>
               Michael R.
             </h3>
-            <img src="../Assets/Images/undercut-8.jpeg" alt="tester" class="tester">
+            <img src="../Assets/Images/test 2.jpg" alt="tester" class="tester">
           </div>
         </div>
         <p>"I've been searching for a barber who can handle my unruly beard, and I finally found the perfect place. " </p>
@@ -192,7 +191,7 @@
           <h3>
             Sarah L.
           </h3>
-          <img src="../Assets/Images/undercut-4.jpeg" alt="tester" class="tester">
+          <img src="../Assets/Images/test 3.jpg" alt="tester" class="tester">
         </div>
     </div>
     <p>"Walking into this barber shop is like stepping back in time. The vintage decor and old-school charm create a fantastic ambiance.</p>

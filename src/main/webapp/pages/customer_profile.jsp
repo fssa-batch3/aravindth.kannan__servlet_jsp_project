@@ -27,6 +27,7 @@
 
 		try {
 		 user = userService.getUser(loggedInEmail);
+	
 		} catch (ServiceException e) {
 			// Handle the exception appropriately, e.g., display an error message to the user or log it
 			out.println("Error: " + e.getMessage());
@@ -39,6 +40,17 @@
     <!-- section is started -->
 
     <form action="UpdateUserServlet" method="post"  class="profile_form" id="form_p">
+     <% 
+			String errorMessage = request.getParameter("error");
+     System.out.println(errorMessage);
+			if(errorMessage != null){
+				%>
+				<div class="styledbutton" id="styledbuttonlogin">
+		    	   <%=errorMessage %><!-- this will change based on invalid field entered -->
+		    	</div>
+		    	<%
+			}
+		%>
       <div class="head_div">
         <h2 class="head">User Profile</h2>
       </div>
@@ -47,6 +59,7 @@
         <br />
         <br />
         <input name="name" value="<%= user.getUsername() %>" class="form-control personName" id="usernsme"  />
+        
       </div>
       <div class="form-group">
         <label for="email" class="all_label">Email:</label>

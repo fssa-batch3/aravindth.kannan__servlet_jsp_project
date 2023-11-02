@@ -1,8 +1,8 @@
 package com.fssa.sharpandcleanWeb.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,22 +29,22 @@ public class UpdateUserServlet extends HttpServlet {
 	    String loggedInEmail = (String) session.getAttribute("loggedInEmail");  
 	    String newUserName = request.getParameter("name");
 	    String newMobileNumber = request.getParameter("phonenumber");
-	    String newPassword = request.getParameter("password");
-	    
-	    UserService userService = new UserService();
-	    PrintWriter out = response.getWriter();
-	    
-	    User updated_user = new User(loggedInEmail,newUserName, newPassword, newMobileNumber);
 	   
+	    UserService userService = new UserService();
 	    
+	    User updated_user = new User(loggedInEmail,newUserName, newMobileNumber); 
 	    try {
 	        userService.updateUser(updated_user);
 	        response.sendRedirect("customer_profile.jsp");
 	            
 	    } catch (ServiceException e) {
-
-			response.sendRedirect("customer_profile_page.jsp?error="+e);
-			out.print(e.getMessage());
+	    	e.printStackTrace();
+			String error = e.getMessage();
+			request.setAttribute("name", newUserName);
+			request.setAttribute("phonenumber", newMobileNumber);
+			
+			RequestDispatcher patcher = request.getRequestDispatcher("/pages/customer_profile.jsp?error="+error);
+			patcher.forward(request, response);
 	    }
 	}
 }

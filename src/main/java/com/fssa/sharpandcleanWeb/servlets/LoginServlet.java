@@ -33,7 +33,6 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		User user = new User(email, password);
 		
-	
 		PrintWriter out = response.getWriter();
 		UserService userService = new UserService();
 		try {
@@ -43,8 +42,14 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath()+"/pages/customer_home.jsp");
 					     	
 		}catch(ServiceException e) {
-			response.sendRedirect(request.getContextPath()+"/pages/customer_login.jsp");
-			out.println(e.getMessage());
+			out.print(e.getMessage());
+			String msg = e.getMessage();
+			String[] error = msg.split(":");
+			request.setAttribute("email", email);
+			request.setAttribute("password",password);
+			
+			RequestDispatcher patcher = request.getRequestDispatcher("/pages/customer_login.jsp?error="+error[error.length-1]);
+			patcher.forward(request, response);
 		}
 
 		
